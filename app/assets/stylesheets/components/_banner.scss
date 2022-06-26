@@ -1,0 +1,11 @@
+.banner {
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://res.cloudinary.com/dxcrr7aon/image/upload/v1656261346/p5qz7luqxmkma0nrxjp3.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+  height: 70vh;
+
+  h1, p {
+    color: white;
+  }
+}

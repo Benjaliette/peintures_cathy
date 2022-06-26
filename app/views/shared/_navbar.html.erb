@@ -1,5 +1,18 @@
 <div class="navbar">
   <div class="container">
-    <div class="logo"></div>
+    <div class="logo">
+      <%= image_tag 'black_signature.png' %>
+    </div>
+    <ul class="nav-items">
+      <li class="nav-item">Accueil</li>
+      <li class="nav-item">L'artiste</li>
+      <li class="nav-item">La gallerie</li>
+      <li class="nav-item">Contact</li>
+      <% if current_user %>
+        <li class="nav-item">Mon compte</li>
+      <% else %>
+        <li class="nav-item">Connexion/Inscription</li>
+      <% end %>
+    </ul>
   </div>
 </div>
