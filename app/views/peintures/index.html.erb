@@ -1,2 +1,7 @@
-<h1>Peintures#index</h1>
-<p>Find me in app/views/peintures/index.html.erb</p>
+<div class="container">
+  <div class="main-grid">
+    <% @paintings.each do |painting| %>
+      <div class="product-card"><%= painting.title %></div>
+    <% end %>
+  </div>
+</div>

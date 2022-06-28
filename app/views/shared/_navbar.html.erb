@@ -1,18 +1,37 @@
-<div class="navbar">
-  <div class="container">
-    <div class="logo">
-      <%= image_tag 'black_signature.png' %>
+<div class="navbar" data-controller="change-navbar-background" data-action="scroll@window->change-navbar-background#modifyNavbar">
+  <div class="navbar-principal" data-change-navbar-background-target="principal">
+    <div class="container">
+      <div class="logo">
+        <%= image_tag 'black_signature.png' %>
+      </div>
+      <ul class="nav-items">
+        <li class="nav-item">Accueil</li>
+        <li class="nav-item">L'artiste</li>
+        <li class="nav-item">La gallerie</li>
+        <li class="nav-item">Contact</li>
+        <% if current_user %>
+          <li class="nav-item">Mon compte</li>
+        <% else %>
+          <li class="nav-item">Connexion/Inscription</li>
+        <% end %>
+      </ul>
     </div>
-    <ul class="nav-items">
-      <li class="nav-item">Accueil</li>
-      <li class="nav-item">L'artiste</li>
-      <li class="nav-item">La gallerie</li>
-      <li class="nav-item">Contact</li>
-      <% if current_user %>
-        <li class="nav-item">Mon compte</li>
-      <% else %>
-        <li class="nav-item">Connexion/Inscription</li>
-      <% end %>
-    </ul>
+  </div>
+  <div class="navbar-secondary disapear" data-change-navbar-background-target="secondary">
+    <div class="container">
+      <div class="logo" data-change-navbar-background-target="shortLogo">
+        <%= image_tag 'short_signature.png' %>
+      </div>
+      <ul class="nav-items" data-change-navbar-background-target="shortItems">
+        <li class="nav-item">L'artiste</li>
+        <li class="nav-item">La gallerie</li>
+        <li class="nav-item">Contact</li>
+        <% if current_user %>
+          <li class="nav-item">Mon compte</li>
+        <% else %>
+          <li class="nav-item">Connexion/Inscription</li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </div>
