@@ -4,4 +4,7 @@
       <div class="product-card"><%= painting.title %></div>
     <% end %>
   </div>
+  <% if policy(Painting).create? %>
+    <%= link_to "Rajouter un joli tableau", new_peinture_path %>
+  <% end %>
 </div>
