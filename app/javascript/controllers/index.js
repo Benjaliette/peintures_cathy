@@ -12,3 +12,6 @@ application.register("disapear-navbar", DisapearNavbarController)
 
 import HelloController from "./hello_controller.js"
 application.register("hello", HelloController)
+
+import UserDropdownController from "./user_dropdown_controller.js"
+application.register("user-dropdown", UserDropdownController)

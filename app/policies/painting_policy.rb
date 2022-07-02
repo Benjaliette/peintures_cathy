@@ -4,9 +4,9 @@ class PaintingPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
+  end
 
-    def create?
-      record.user == user && user.admin
-    end
+  def create?
+    user&.admin
   end
 end

@@ -10,9 +10,20 @@
         <li class="nav-item">La gallerie</li>
         <li class="nav-item">Contact</li>
         <% if current_user %>
-          <li class="nav-item">Mon compte</li>
+          <li class="nav-item" data-controller="user-dropdown" data-action='click->user-dropdown#toggleDropdown' data-user-dropdown-target='navbarItem' data-change-navbar-background-target='navbarItem'>
+            Mon compte
+            <ul class="main-user-dropdown disapear" data-user-dropdown-target='dropdownList' data-change-navbar-background-target='mainDropdownList'>
+              <li class="main-user-dropdown-item">Paramètres de compte</li>
+              <li class="main-user-dropdown-item">Mes commandes</li>
+              <li class="main-user-dropdown-item">
+                <%= button_to 'Déconnexion', destroy_user_session_path, method: :delete %>
+              </li>
+            </ul>
+          </li>
         <% else %>
-          <li class="nav-item">Connexion/Inscription</li>
+          <li class="nav-item">
+            <%= link_to 'Connexion', new_user_session_path %>
+          </li>
         <% end %>
       </ul>
     </div>
@@ -25,11 +36,24 @@
       <ul class="nav-items" data-change-navbar-background-target="shortItems">
         <li class="nav-item">L'artiste</li>
         <li class="nav-item">La gallerie</li>
-        <li class="nav-item">Contact</li>
+        <li class="nav-item">
+          <%= link_to 'Contact', contact_pages_path %>
+        </li>
         <% if current_user %>
-          <li class="nav-item">Mon compte</li>
+          <li class="nav-item" data-controller="user-dropdown">
+            <%= image_tag 'user.png', class:"avatar", data: { action: 'click->user-dropdown#toggleDropdown' } %>
+            <ul class="user-dropdown disapear" data-user-dropdown-target='dropdownList' data-change-navbar-background-target='secondDropdownList'>
+              <li class="user-dropdown-item">Paramètres de compte</li>
+              <li class="user-dropdown-item">Mes commandes</li>
+              <li class="user-dropdown-item">
+                <%= button_to 'Déconnexion', destroy_user_session_path, method: :delete, class: 'disconnect' %>
+              </li>
+            </ul>
+          </li>
         <% else %>
-          <li class="nav-item">Connexion/Inscription</li>
+          <li class="nav-item">
+            <%= link_to 'Connexion', new_user_session_path %>
+          </li>
         <% end %>
       </ul>
     </div>

@@ -15,12 +15,42 @@
     margin: 0;
     padding: 0;
     width: 100%;
-    display: flex;
-    justify-content: space-evenly;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    text-align: center;
     .nav-item {
       list-style: none;
       padding: 12px;
+      position: relative;
+      cursor: pointer;
     }
+    a, .button_to > button {
+      text-decoration: none;
+      color: $font-color;
+      background: transparent;
+      border: 0px;
+      cursor: pointer;
+      &:hover {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.main-user-dropdown {
+  background-color: #DBD0C0;
+  position: absolute;
+  width: 165px;
+  top: 47px;
+  right: -1px;
+  list-style: none;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid black;
+  .main-user-dropdown-item {
+    font-size: 12px;
+    padding: 10px 0;
   }
 }
 
@@ -49,9 +79,10 @@
   .nav-items {
     margin: 0;
     padding: 0;
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
+    width: 45%;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    text-align: center;
     transform: translateX(30%) scale(0.95);
     opacity: 0;
     transition: all .5s;
@@ -60,8 +91,40 @@
       transform: translateX(0%) scale(1);
     }
     .nav-item {
+      display: flex;
+      align-items: center;
       list-style: none;
       padding: 12px;
+      &:last-child {
+        position: relative;
+        cursor: pointer;
+      }
     }
+    a, .button_to > button {
+      text-decoration: none;
+      color: $font-color;
+      background: transparent;
+      border: 0px;
+      cursor: pointer;
+      &:hover {
+        font-weight: bold;
+      }
+    }
+  }
+}contact_pages
+
+.user-dropdown {
+  background-color: white;
+  position: absolute;
+  width: 112px;
+  top: 70px;
+  right: -30px;
+  list-style: none;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  .user-dropdown-item {
+    font-size: 12px;
+    padding: 10px 0;
   }
 }
