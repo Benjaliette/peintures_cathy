@@ -5,10 +5,16 @@
         <%= image_tag 'black_signature.png' %>
       </div>
       <ul class="nav-items">
-        <li class="nav-item">Accueil</li>
-        <li class="nav-item">L'artiste</li>
+        <li class="nav-item">
+          <%= link_to "Accueil", peintures_path %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "L'artiste", artiste_pages_path %>
+        </li>
         <li class="nav-item">La gallerie</li>
-        <li class="nav-item">Contact</li>
+        <li class="nav-item">
+          <%= link_to 'Contact', contact_pages_path %>
+        </li>
         <% if current_user %>
           <li class="nav-item" data-controller="user-dropdown" data-action='click->user-dropdown#toggleDropdown' data-user-dropdown-target='navbarItem' data-change-navbar-background-target='navbarItem'>
             Mon compte
@@ -31,10 +37,14 @@
   <div class="navbar-secondary disapear" data-change-navbar-background-target="secondary">
     <div class="container">
       <div class="logo" data-change-navbar-background-target="shortLogo">
-        <%= image_tag 'short_signature.png' %>
+        <%= link_to peintures_path do%>
+          <%= image_tag 'short_signature.png' %>
+        <% end %>
       </div>
       <ul class="nav-items" data-change-navbar-background-target="shortItems">
-        <li class="nav-item">L'artiste</li>
+        <li class="nav-item">
+          <%= link_to "L'artiste", artiste_pages_path %>
+        </li>
         <li class="nav-item">La gallerie</li>
         <li class="nav-item">
           <%= link_to 'Contact', contact_pages_path %>

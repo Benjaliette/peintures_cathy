@@ -6,7 +6,7 @@ class PeinturesController < ApplicationController
   end
 
   def show
-    @painting = Painting.find(params[:id])
+    @painting = policy_scope(Painting).find(params[:id])
   end
 
   def new

@@ -1,7 +1,14 @@
 <div class="container">
   <div class="main-grid">
     <% @paintings.each do |painting| %>
-      <div class="product-card"><%= painting.title %></div>
+      <%= link_to peinture_path(painting) do %>
+        <div class="product-card">
+          <div class="product-card-img" style='background-image: url(<%= cl_image_path painting.photo.key %>)'></div>
+          <div class="product-card-infos">
+            <div><%= painting.title %></div>
+          </div>
+        </div>
+      <% end %>
     <% end %>
   </div>
   <% if policy(Painting).create? %>

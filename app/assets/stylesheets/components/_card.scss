@@ -1,6 +1,24 @@
 .product-card {
-  border: 1px solid red;
-  background: grey;
+  background: white;
+  box-shadow: 0px 1px 2px grey;
   height: 400px;
   border-radius: 10px;
+  overflow: hidden;
+  &:hover {
+    .product-card-img {
+      height: 100px;
+    }
+  }
+}
+
+.product-card-img {
+  height: 300px;
+  border-radius: 10px 10px 0 0;
+  transition: all .5s ease;
+  transition-delay: .02s;
+}
+
+.product-card-infos {
+  padding: 20px;
+  font-weight: bold;
 }
