@@ -39,6 +39,9 @@ gem "jsbundling-rails"
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
+# Use Money Gem for rails to play with prices and money
+gem 'money-rails'
+
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 
@@ -62,6 +65,9 @@ gem "simple_form", github: "heartcombo/simple_form"
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
+
+# Use this gem for implement paiement in this app for paintings
+gem 'stripe'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"

@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="peinture-detail-img">
+    <%= cl_image_tag @painting.photo.key %>
+  </div>
+  <div class="peinture-detail-legend">
+    <div class="peinture-detail-infos">
+      <h2><%= @painting.title %></h2>
+      <div>Prix: <%= humanized_money(@painting.price) %> €</div>
+    </div>
+    <%= simple_form_for [@painting, @order] do |f| %>
+      <%= f.submit 'ACHETER', class: "btn-principal" %>
+    <% end %>
+  </div>
+</div>

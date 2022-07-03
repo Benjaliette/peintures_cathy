@@ -12,8 +12,9 @@ puts '💻 Creation of 20 paintings ...'
 20.times do
   file = URI.open('https://res.cloudinary.com/dxcrr7aon/image/upload/v1656261368/db7pmtcemht4ed4zbltn.jpg')
   painting = Painting.create!(
-    title: Faker::Movies::StarWars.quote,
-    description: Faker::Lorem.paragraph(sentence_count: 5)
+    title: "Peinture de style #{Faker::Artist.name}",
+    description: Faker::Lorem.paragraph(sentence_count: 5),
+    price: %w[50 80 100 150 170 200 250 310 460].sample
   )
 
   painting.photo.attach(io: file, filename: 'painting_default.jpg', content_type: 'image/jpg')

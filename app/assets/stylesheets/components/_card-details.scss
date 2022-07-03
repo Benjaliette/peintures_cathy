@@ -1,0 +1,18 @@
+.peinture-detail-img {
+  width: 80%;
+  margin: 0 auto;
+  img {
+    width: 100%;
+  }
+}
+
+.peinture-detail-legend {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .btn-principal {
+    border: 0;
+    cursor: pointer;
+  }
+}

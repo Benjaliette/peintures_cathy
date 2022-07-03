@@ -1,4 +1,7 @@
 class Painting < ApplicationRecord
+  # Money rails determining price
+  monetize :price_cents
+
   # Associations
   has_many :orders
 

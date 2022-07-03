@@ -1,4 +1,4 @@
-class PeinturesController < ApplicationController
+class PaintingsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
@@ -7,6 +7,7 @@ class PeinturesController < ApplicationController
 
   def show
     @painting = policy_scope(Painting).find(params[:id])
+    @order = Order.new
   end
 
   def new
