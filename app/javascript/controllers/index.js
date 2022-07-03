@@ -7,8 +7,14 @@ import { application } from "./application"
 import ChangeNavbarBackgroundController from "./change_navbar_background_controller.js"
 application.register("change-navbar-background", ChangeNavbarBackgroundController)
 
+import DisapearFooterController from "./disapear_footer_controller.js"
+application.register("disapear-footer", DisapearFooterController)
+
 import DisapearNavbarController from "./disapear_navbar_controller.js"
 application.register("disapear-navbar", DisapearNavbarController)
+
+import GenerateBackgroundController from "./generate_background_controller.js"
+application.register("generate-background", GenerateBackgroundController)
 
 import HelloController from "./hello_controller.js"
 application.register("hello", HelloController)
