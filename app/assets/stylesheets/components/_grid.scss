@@ -1,12 +1,24 @@
+// Grid for paintings to sell :
 .main-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
 }
 
+// Grid for galerie
+.galerie-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5px;
+}
+
 @media (max-width: 900px) {
   .main-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .galerie-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -14,5 +26,9 @@
   .main-grid {
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 0px;
+  }
+
+  .galerie-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

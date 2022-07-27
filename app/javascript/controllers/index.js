@@ -19,5 +19,8 @@ application.register("generate-background", GenerateBackgroundController)
 import HelloController from "./hello_controller.js"
 application.register("hello", HelloController)
 
+import PaintingZoomController from "./painting_zoom_controller.js"
+application.register("painting-zoom", PaintingZoomController)
+
 import UserDropdownController from "./user_dropdown_controller.js"
 application.register("user-dropdown", UserDropdownController)

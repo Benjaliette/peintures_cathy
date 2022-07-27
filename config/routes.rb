@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :paintings, only: %i[index show new create] do
     resources :orders, only: %i[show create]
     resources :paiements, only: :new
+    collection do
+      get 'available'
+    end
   end
   resources :pages do
     collection do

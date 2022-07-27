@@ -1,8 +1,12 @@
 class PaintingsController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[index show]
+  skip_before_action :authenticate_user!, only: %i[index available show]
 
   def index
     @paintings = policy_scope(Painting)
+  end
+
+  def available
+    @paintings = policy_scope(Painting).where(sell: true)
   end
 
   def show

@@ -14,7 +14,8 @@ puts '💻 Creation of 20 paintings ...'
   painting = Painting.create!(
     title: "Peinture de style #{Faker::Artist.name}",
     description: Faker::Lorem.paragraph(sentence_count: 5),
-    price: %w[50 80 100 150 170 200 250 310 460].sample
+    price: %w[50 80 100 150 170 200 250 310 460].sample,
+    sell: %w[true false].sample
   )
 
   painting.photo.attach(io: file, filename: 'painting_default.jpg', content_type: 'image/jpg')

@@ -1,14 +1,20 @@
 <div class="container">
-  <div class="main-grid">
+  <div class="galerie-grid">
     <% @paintings.each do |painting| %>
-      <%= link_to painting_path(painting) do %>
-        <div class="product-card">
-          <div class="product-card-img" style='background-image: url(<%= cl_image_path painting.photo.key %>)'></div>
-          <div class="product-card-infos">
-            <div><%= painting.title %></div>
+        <div class="painting-card"
+             style='background-image: url(<%= cl_image_path painting.photo.key %>)'
+             data-controller="painting-zoom">
+          <div class="painting-card-zoom" data-action="click->painting-zoom#modalAppear">zoom +</div>
+          <% if painting.sell %>
+            <div class="painting-card-sell">A VENDRE</div>
+          <% end %>
+          <div class="modal disapear" data-painting-zoom-target='modal'>
+            <div class="modal-content">
+              <%= cl_image_tag painting.photo.key %>
+              <span class="close" data-action="click->painting-zoom#modalClose">+</span>
+            </div>
           </div>
         </div>
-      <% end %>
     <% end %>
   </div>
   <% if policy(Painting).create? %>
