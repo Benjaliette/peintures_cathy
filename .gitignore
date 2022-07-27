@@ -41,6 +41,6 @@
 .DS_Store
 
 # Ignore server SSL keys
-.server.crt
-.server.csr
-.server.key
+server.crt
+server.csr
+server.key
