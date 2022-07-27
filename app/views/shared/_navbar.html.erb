@@ -2,13 +2,13 @@
   <div class="navbar-principal" data-change-navbar-background-target="principal">
     <div class="container">
       <div class="logo">
-        <%= link_to available_paintings_path do %>
+        <%= link_to root_path do %>
           <%= image_tag 'black_signature.png' %>
         <% end %>
       </div>
       <ul class="nav-items">
         <li class="nav-item">
-          <%= link_to "Accueil", root_path %>
+          <%= link_to "Accueil", available_paintings_path %>
         </li>
         <li class="nav-item">
           <%= link_to "L'artiste", artiste_pages_path %>
