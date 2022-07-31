@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/show'
   devise_for :users
   root to: "pages#home"
 
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
       get 'available'
     end
   end
+
   resources :pages do
     collection do
       get 'contact'
@@ -16,4 +18,5 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :users, only: :show
 end

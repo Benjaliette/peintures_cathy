@@ -1,5 +1,6 @@
 .main-container {
-  margin-top: 220px;
+  margin-top: $navbar-height;
+  min-height: calc(100vh - #{$navbar-height} - #{$footer-height} - #{$footer-margin-top});
 }
 
 .container {

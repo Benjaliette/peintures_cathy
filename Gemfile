@@ -93,6 +93,9 @@ end
 # Gems for development
 
 group :development do
+  # Letter Opener is used to open mail in a development environment
+  gem 'letter_opener', group: :development
+
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 

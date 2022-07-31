@@ -2,12 +2,12 @@
   background: #DBD0C0;
   position: absolute;
   width: 100%;
-  margin-top: 50px;
+  margin-top: $footer-margin-top;
   .container {
+    height: $footer-height;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 100px;
     .logo img {
       width: 50px;
     }

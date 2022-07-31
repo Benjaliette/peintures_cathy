@@ -1,0 +1,14 @@
+<h1>Bonjour <%= @user.first_name %> <%= @user.last_name %></h1>
+
+<p>
+  Vous venez de créer un compte sur le site internet cliet-tableaux.com et nous vous en remercions.
+</p>
+<p>
+  Vous pouvez dès à présent vous connecter à votre <%= link_to 'compte personnel', user_url(@user) %> avec votre adresse mail (<%= @user.email %>)
+  et le mot de passe que vous avez entré (vous pouvez en toute circonstance modifier votre mot de passe dans votre espace).
+</p>
+<p>
+  Grâce à votre inscription, vous pouvez désormais acquérir l'un des tableaux mis en vente.
+  Nous espérons que vous serez satisfait de notre service. Pour toute demande complémentaire, n'hésitez pas à nous
+  contacter <%= link_to 'ICI', contact_pages_url %>
+</p>

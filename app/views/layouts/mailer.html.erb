@@ -3,11 +3,26 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <style>
-      /* Email styles need to be inline */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap');
+
+      a {
+        color: #FD5D5D;
+        font-weight: bold;
+      }
+
+      body {
+        font-family: 'Poppins', sans-serif;
+      }
+
+      img {
+        width: 30vh;
+        margin: 10vh;
+      }
     </style>
   </head>
 
   <body>
     <%= yield %>
+    <%= image_tag 'black_signature.png' %>
   </body>
 </html>
