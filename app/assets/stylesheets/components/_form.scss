@@ -7,6 +7,8 @@
   margin: 100px 0;
 }
 
+//===== FORM FOR DEVISE/IDENTIFICATION =====//
+
 .id-form {
   width: 400px;
   background: white;
@@ -57,6 +59,81 @@
     font-size: 12px;
     a {
       color: $blue;
+    }
+  }
+}
+
+//===== FORM FOR DEVISE/IDENTIFICATION =====//
+
+.contact-form {
+  width: 80%;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgb(155, 155, 155);
+  margin: 0 auto;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+
+  .form-inputs {
+    width: 70%;
+    margin-bottom: 50px;
+  }
+
+  .form-group {
+
+    margin: 20px 0;
+
+    input {
+      height: 40px;
+      width: 70%;
+      border-radius: 5px;
+      border: 1px solid gray;
+      padding: 0 10px;
+      font-size: 16px;
+    }
+
+    .input {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  .form-group-text {
+    .input {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      label {
+        margin-bottom: 20px;
+      }
+
+      #message_body {
+        width: 100%;
+        border-radius: 5px;
+        height: 50vh;
+        padding: 30px;
+        font-family: $body-font;
+      }
+    }
+  }
+
+  .form-actions {
+    input {
+      border: 0;
     }
   }
 }

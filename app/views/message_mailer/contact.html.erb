@@ -1,5 +1,7 @@
-<h1>Message#contact</h1>
+<h1>Contact de <%= @message.name %>:</h1>
 
-<p>
-  <%= @greeting %>, find me in app/views/message_mailer/contact.html.erb
+<p class='mail-body'>
+  <%= @message.body %>
 </p>
+
+<div>Mail de la personne à contacter: <%= @message.email %></div>

@@ -1,11 +1,25 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
-  config.action_mailer.default_url_options = { host: "http://TODO_PUT_YOUR_DOMAIN_HERE" }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { host: "https://www.cliet-tableaux.com/" }
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.sendgrid.net',
+    port: 587,
+    domain: 'cliet-tableaux.com',
+    user_name: 'apikey',
+    password: ENV['SENDGRID_API_KEY'],
+    authentication: :login,
+    enable_starttls_auto: true
+  }
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
   config.cache_classes = true
+
+  config.action_controller.asset_host = 'https://www.cliet-tableaux.com/'
+  config.action_mailer.asset_host = config.action_controller.asset_host
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
