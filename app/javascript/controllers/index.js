@@ -7,6 +7,9 @@ import { application } from "./application"
 import ChangeNavbarBackgroundController from "./change_navbar_background_controller.js"
 application.register("change-navbar-background", ChangeNavbarBackgroundController)
 
+import CloseFlashController from "./close_flash_controller.js"
+application.register("close-flash", CloseFlashController)
+
 import DisapearFooterController from "./disapear_footer_controller.js"
 application.register("disapear-footer", DisapearFooterController)
 

@@ -1,0 +1,43 @@
+.flash {
+  width: fit-content;
+  margin: 20px;
+  padding: 15px 40px;
+  position: sticky;
+  bottom: 10px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .close-flash {
+    margin-left: 20px;
+    transform: rotate(45deg);
+    font-size: 32px;
+    font-weight: 400;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 900px) {
+  .flash {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 500px) {
+  .flash {
+    font-size: 12px;
+  }
+}
+
+.notice {
+  background: url("https://s2.svgbox.net/pen-brushes.svg?ic=brush-8&color=FD5D5D");
+}
+
+.alert {
+  background: url("https://s2.svgbox.net/pen-brushes.svg?ic=brush-8&color=FD5D5D");
+}
+
+.success {
+  background: url("https://s2.svgbox.net/pen-brushes.svg?ic=brush-8&color=86BA90");
+}
