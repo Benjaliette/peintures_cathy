@@ -1,5 +1,6 @@
 class PaintingsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index available show]
+  before_action :set_painting, only: %i[show edit update destroy]
 
   def index
     @paintings = policy_scope(Painting)
@@ -10,12 +11,12 @@ class PaintingsController < ApplicationController
   end
 
   def show
-    @painting = policy_scope(Painting).find(params[:id])
     @order = Order.new
   end
 
   def new
     @painting = Painting.new
+    authorize @painting
   end
 
   def create
@@ -29,9 +30,33 @@ class PaintingsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @painting.update(painting_params)
+
+    if @painting.save
+      redirect_to painting_path(@painting)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @painting.destroy
+
+    redirect_to user_path(@user)
+  end
+
   private
 
+  def set_painting
+    @painting = Painting.find(params[:id])
+    authorize @painting
+  end
+
   def painting_params
-    params.require(:painting).permit(:title, :description)
+    params.require(:painting).permit(:title, :description, :price, :sell, :photo)
   end
 end

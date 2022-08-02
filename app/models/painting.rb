@@ -6,7 +6,7 @@ class Painting < ApplicationRecord
   has_many :orders
 
   # Validations
-  validates :title, :description, presence: true
+  validates :title, :description, :price, presence: true
 
   # Active Storage
   has_one_attached :photo

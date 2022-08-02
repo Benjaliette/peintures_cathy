@@ -16,17 +16,24 @@
     </div>
   </div>
   <div class="user-cards">
-    <div class="user-infos-edit">
+    <div class="user-cards-infos">
       <div class="user-infos-title">Mes informations</div>
       <ul class="user-infos-edit-list">
-        <li>Email: <%= @user.email %></li>
-        <li>Adresse (pour livraison): <%= @user.address ? @user.address : "vous n'avez pas encore renseigné d'adresse" %></li>
+        <li><span class="pen-brush">Email:</span> <%= @user.email %></li>
+        <li>
+          Adresse (pour livraison):
+          <% if @user.address %>
+            <%= @user.address %>
+          <% else %>
+            <span class='sm-italic'>vous n'avez pas encore renseigné d'adresse</span>
+          <% end %>
+        </li>
         <li>Mot de passe: ********</li>
         <li>Membre depuis: <%= @user.created_at %></li>
       </ul>
     </div>
     <%= link_to user_orders_path(@user) do %>
-      <div class="user-orders">
+      <div class="user-cards-infos">
         <div class="user-infos-title">Mes commandes</div>
         <ul class="user-orders-list">
           <% @user.orders.each do |order| %>
@@ -35,12 +42,12 @@
         </ul>
       </div>
     <% end %>
-    <div class="user-admin">
+    <div class="user-card-infos user-admin">
       <div class="user-infos-title">Tableau de bord</div>
       <ul class="user-admin-actions">
-        <li>Ajouter un tableau</li>
-        <li>Modifier un tableau</li>
-        <li>Effacer définitivement un tableau</li>
+        <li><%= link_to 'Ajouter un tableau', new_painting_path %></li>
+        <li><%= link_to 'Modifier un tableau', new_painting_path %></li>
+        <li><%= link_to 'Supprimer un tableau', new_painting_path %></li>
       </ul>
     </div>
   </div>

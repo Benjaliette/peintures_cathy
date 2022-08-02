@@ -110,8 +110,8 @@
   grid-row-gap: 20px;
 }
 
-.user-infos-edit, .user-orders, .user-admin {
-  height: 20vh;
+.user-cards-infos {
+  height: 25vh;
   border: 1px solid grey;
   border-radius: 10px;
   padding: 20px;
@@ -119,17 +119,37 @@
   background-color: $light-gray;
 
   transition: all .2s ease-in-out;
+
   &:hover {
     transform: scale(1.05);
   }
 }
 
-.user-infos-title {
-  font-weight: bold;
-  padding-bottom: 5px;
-  border-bottom: 1px solid grey;
+.user-admin {
+  height: 25vh;
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 20px;
+
+  background-color: $light-gray;
+
+  a:hover {
+    font-weight: bold;
+  }
 }
 
-.user-orders.list {
+.user-infos-title {
+  font-weight: bold;
+  padding: 15px;
+  background: url("https://s2.svgbox.net/pen-brushes.svg?ic=brush-10&color=FD5D5D");
+}
+
+.user-orders-list, .user-infos-edit-list, .user-admin-actions {
   list-style-type: none;
+  padding: 0;
+  margin: 15px;
+
+  li {
+    margin: 15px 0;
+  }
 }
