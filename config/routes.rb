@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: :show do
+  resources :users, only: %i[show edit update] do
     resources :orders, only: %i[index show]
   end
 

@@ -80,19 +80,21 @@
   height: 15vh;
   border: 1px solid grey;
   border-radius: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 
   background-color: $light-gray;
 
   display: flex;
   align-items: center;
-  justify-content: flex-start;
 
-  img, h1, div {
-    margin-left: 6vw;
+  .user-infos-container {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
   }
 
-  div {
+  h1 > span {
     color: $red;
     font-style: italic;
   }
@@ -100,11 +102,12 @@
 
 .user-cards {
   width: 100%;
+  font-size: 14px;
 
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
 }
 
 .user-infos-edit, .user-orders, .user-admin {
@@ -115,4 +118,18 @@
 
   background-color: $light-gray;
 
+  transition: all .2s ease-in-out;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.user-infos-title {
+  font-weight: bold;
+  padding-bottom: 5px;
+  border-bottom: 1px solid grey;
+}
+
+.user-orders.list {
+  list-style-type: none;
 }

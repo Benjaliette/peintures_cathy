@@ -1,14 +1,23 @@
 <div class="container">
   <div class="user-infos">
-    <%= image_tag 'user.png', class: 'avatar-lg' %>
-    <h1><%= @user.first_name %> <%= @user.last_name %></h1>
-    <% if @user.admin %>
-      <div>(admin)</div>
-    <% end %>
+    <div class="user-infos-container">
+      <div class="user-img">
+        <%= cl_image_tag @user.photo.key, class: 'avatar-lg', crop: :fill %>
+        <%= link_to edit_user_path(@user) do %>
+          <div class='avatar-plus'>+</div>
+        <% end %>
+      </div>
+      <h1>
+        <%= @user.first_name %> <%= @user.last_name %>
+        <% if @user.admin %>
+          <span>(admin)</span>
+        <% end %>
+      </h1>
+    </div>
   </div>
   <div class="user-cards">
     <div class="user-infos-edit">
-      <div class="user-infos-edit-title">Mes informations</div>
+      <div class="user-infos-title">Mes informations</div>
       <ul class="user-infos-edit-list">
         <li>Email: <%= @user.email %></li>
         <li>Adresse (pour livraison): <%= @user.address ? @user.address : "vous n'avez pas encore renseigné d'adresse" %></li>
@@ -18,12 +27,21 @@
     </div>
     <%= link_to user_orders_path(@user) do %>
       <div class="user-orders">
-        <div class="user-orders-title">Mes commandes</div>
-        <div>Dernière commande en date:</div>
+        <div class="user-infos-title">Mes commandes</div>
+        <ul class="user-orders-list">
+          <% @user.orders.each do |order| %>
+            <li><%= order.painting.title %></li>
+          <% end %>
+        </ul>
       </div>
     <% end %>
     <div class="user-admin">
-      Tableau de bord
+      <div class="user-infos-title">Tableau de bord</div>
+      <ul class="user-admin-actions">
+        <li>Ajouter un tableau</li>
+        <li>Modifier un tableau</li>
+        <li>Effacer définitivement un tableau</li>
+      </ul>
     </div>
   </div>
 </div>
