@@ -1,4 +1,14 @@
 class OrdersController < ApplicationController
+  def index
+    @user = policy_scope(User).find(params[:user_id])
+    @orders = @user.orders
+  end
+
+  def show
+    @order = Order.find(params[:id])
+    authorize @order
+  end
+
   def create
     @painting = policy_scope(Painting).find(params[:painting_id])
     @order  = Order.create!(painting: @painting, amount: @painting.price, state: 'pending', user: current_user)

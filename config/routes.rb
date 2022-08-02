@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'users/show'
   devise_for :users
   root to: "pages#home"
 
   resources :paintings, only: %i[index show new create] do
-    resources :orders, only: %i[show create]
+    resources :orders, only: :create
     resources :paiements, only: :new
     collection do
       get 'available'
@@ -18,7 +19,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: :show
+  resources :users, only: :show do
+    resources :orders, only: %i[index show]
+  end
 
   resources :messages, only: :create
 end

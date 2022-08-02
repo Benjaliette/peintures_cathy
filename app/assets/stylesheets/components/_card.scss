@@ -73,3 +73,46 @@
   border-radius: 20px;
   padding: 2px 5px;
 }
+
+// ===== CARDS FOR USER PAGE ===== //
+
+.user-infos {
+  height: 15vh;
+  border: 1px solid grey;
+  border-radius: 10px;
+  margin-bottom: 10px;
+
+  background-color: $light-gray;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  img, h1, div {
+    margin-left: 6vw;
+  }
+
+  div {
+    color: $red;
+    font-style: italic;
+  }
+}
+
+.user-cards {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
+.user-infos-edit, .user-orders, .user-admin {
+  height: 20vh;
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 20px;
+
+  background-color: $light-gray;
+
+}

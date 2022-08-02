@@ -23,8 +23,12 @@
           <li class="nav-item" data-controller="user-dropdown" data-action='click->user-dropdown#toggleDropdown' data-user-dropdown-target='navbarItem' data-change-navbar-background-target='navbarItem'>
             Mon compte
             <ul class="main-user-dropdown disapear" data-user-dropdown-target='dropdownList' data-change-navbar-background-target='mainDropdownList'>
-              <li class="main-user-dropdown-item">Paramètres de compte</li>
-              <li class="main-user-dropdown-item">Mes commandes</li>
+              <li class="main-user-dropdown-item">
+                <%= link_to 'Mon compte', user_path(current_user) %>
+              </li>
+              <li class="main-user-dropdown-item">
+                <%= link_to 'Mes commandes', user_orders_path(current_user) %>
+              </li>
               <li class="main-user-dropdown-item">
                 <%= button_to 'Déconnexion', destroy_user_session_path, method: :delete %>
               </li>
@@ -59,8 +63,12 @@
           <li class="nav-item" data-controller="user-dropdown">
             <%= image_tag 'user.png', class:"avatar", data: { action: 'click->user-dropdown#toggleDropdown' } %>
             <ul class="user-dropdown disapear" data-user-dropdown-target='dropdownList' data-change-navbar-background-target='secondDropdownList'>
-              <li class="user-dropdown-item">Paramètres de compte</li>
-              <li class="user-dropdown-item">Mes commandes</li>
+              <li class="user-dropdown-item">
+                <%= link_to 'Mon compte', user_path(current_user) %>
+              </li>
+              <li class="user-dropdown-item">
+                <%= link_to 'Mes commandes', user_orders_path(current_user) %>
+              </li>
               <li class="user-dropdown-item">
                 <%= button_to 'Déconnexion', destroy_user_session_path, method: :delete, class: 'disconnect' %>
               </li>

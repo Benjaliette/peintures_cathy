@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   # Pundit: white-list approach.
   include Pundit
-  after_action :verify_authorized, except: %i[index available show], unless: :skip_pundit?
+  after_action :verify_authorized, except: %i[index available], unless: :skip_pundit?
   after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
 
   # Add flash alerts
