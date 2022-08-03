@@ -1,0 +1,15 @@
+.paintings-list {
+  list-style: none;
+}
+
+.paintings-list-item {
+  margin: 5px 0;
+  a {
+    display: flex;
+    align-items: center;
+
+    img {
+      margin-right: 10px;
+    }
+  }
+}

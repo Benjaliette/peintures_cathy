@@ -21,7 +21,7 @@
         </li>
         <% if current_user %>
           <li class="nav-item" data-controller="user-dropdown" data-action='click->user-dropdown#toggleDropdown' data-user-dropdown-target='navbarItem' data-change-navbar-background-target='navbarItem'>
-            Mon compte
+            <span id="account-tab">Mon compte</span>
             <ul class="main-user-dropdown disapear" data-user-dropdown-target='dropdownList' data-change-navbar-background-target='mainDropdownList'>
               <li class="main-user-dropdown-item">
                 <%= link_to 'Mon compte', user_path(current_user) %>

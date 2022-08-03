@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import AdminModalController from "./admin_modal_controller.js"
+application.register("admin-modal", AdminModalController)
+
 import ChangeNavbarBackgroundController from "./change_navbar_background_controller.js"
 application.register("change-navbar-background", ChangeNavbarBackgroundController)
 

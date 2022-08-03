@@ -42,13 +42,47 @@
         </ul>
       </div>
     <% end %>
-    <div class="user-card-infos user-admin">
-      <div class="user-infos-title">Tableau de bord</div>
-      <ul class="user-admin-actions">
-        <li><%= link_to 'Ajouter un tableau', new_painting_path %></li>
-        <li><%= link_to 'Modifier un tableau', new_painting_path %></li>
-        <li><%= link_to 'Supprimer un tableau', new_painting_path %></li>
-      </ul>
-    </div>
+    <% if @user.admin %>
+      <div class="user-card-infos user-admin" data-controller="admin-modal">
+        <div class="user-infos-title">Tableau de bord</div>
+        <ul class="user-admin-actions">
+          <li><%= link_to 'Ajouter un tableau', new_painting_path %></li>
+          <li data-action="click->admin-modal#editModalAppear">Modifier un tableau</li>
+          <li data-action="click->admin-modal#deleteModalAppear">Supprimer un tableau</li>
+        </ul>
+        <div class="modal disapear" data-admin-modal-target='editModal'>
+          <div class="modal-content admin-action">
+            <h2>Quel tableau souhaitez-vous modifier ?</h2>
+            <ul class="paintings-list">
+              <% @paintings.each do |painting| %>
+                <li class="paintings-list-item">
+                  <%= link_to edit_painting_path do %>
+                    <%= cl_image_tag painting.photo.key, class:'painting-pic-xs' %>
+                    <%= painting.title %>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+            <span class="close" data-action="click->admin-modal#modalClose">+</span>
+          </div>
+        </div>
+        <div class="modal disapear" data-admin-modal-target='deleteModal'>
+          <div class="modal-content admin-action">
+            <h2>Quel tableau souhaitez-vous modifier ?</h2>
+            <ul class="paintings-list">
+              <% @paintings.each do |painting| %>
+                <li class="paintings-list-item">
+                  <%= link_to(painting_path(painting), data: { turbo_method: :delete, turbo_confirm: "C'est votre dernier mot?" }) do %>
+                    <%= cl_image_tag painting.photo.key, class:'painting-pic-xs' %>
+                    <%= painting.title %>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+            <span class="close" data-action="click->admin-modal#modalClose">+</span>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>

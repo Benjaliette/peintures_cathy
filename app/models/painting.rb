@@ -3,7 +3,7 @@ class Painting < ApplicationRecord
   monetize :price_cents
 
   # Associations
-  has_many :orders
+  has_many :orders, dependent: :destroy
 
   # Validations
   validates :title, :description, :price, presence: true

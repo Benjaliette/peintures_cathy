@@ -133,8 +133,11 @@
 
   background-color: $light-gray;
 
-  a:hover {
-    font-weight: bold;
+  li {
+    cursor: pointer;
+    &:hover {
+      font-weight: bold;
+    }
   }
 }
 

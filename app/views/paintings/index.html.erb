@@ -10,7 +10,7 @@
           <% end %>
           <div class="modal disapear" data-painting-zoom-target='modal'>
             <div class="modal-content">
-              <%= cl_image_tag painting.photo.key %>
+              <%= cl_image_tag painting.photo.key, class:'painting-zoom' %>
               <span class="close" data-action="click->painting-zoom#modalClose">+</span>
             </div>
           </div>

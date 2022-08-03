@@ -46,7 +46,8 @@ class PaintingsController < ApplicationController
   def destroy
     @painting.destroy
 
-    redirect_to user_path(@user)
+    flash[:alert] = 'Le tableau a été définitivement supprimé'
+    redirect_to user_path(current_user)
   end
 
   private
