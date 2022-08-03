@@ -1,4 +1,5 @@
 require 'faker'
+require "open-uri"
 
 puts '💥 Destroying DB'
 
@@ -26,7 +27,24 @@ puts 'No picture attached' unless Painting.first.photo.attached?
 
 puts "💻Creation of two users: one admin and one lambda"
 
-User.create(first_name: 'Benjamin', last_name: 'Liet', email: 'benjamin.liet@eligia.fr', password: '123456', admin: true)
-User.create(first_name: 'Monsieur', last_name: 'X', email: 'mail@mail.fr', password: '123456')
+file = URI.open('https://res.cloudinary.com/dxcrr7aon/image/upload/v1655989899/ngpj86fxcbbu4tb0249w.png')
+main_user = User.create(
+  first_name: 'Benjamin',
+  last_name: 'Liet',
+  email: 'benjamin.liet@eligia.fr',
+  password: '123456',
+  admin: true
+)
+main_user.photo.attach(io: file, filename: 'main_user.png', content_type: 'image/png')
+
+file = URI.open('https://res.cloudinary.com/dxcrr7aon/image/upload/v1659517750/kmciusgydovfekdvnhxm.png')
+second_user = User.create(
+  first_name: 'Monsieur',
+  last_name: 'X',
+  email: 'mail@mail.fr',
+  password: '123456'
+)
+
+second_user.photo.attach(io: file, filename: 'second_user.png', content_type: 'image/png')
 
 puts User.count == 2 ? '✅ Users created' : '⛔ There was a problem'

@@ -61,7 +61,7 @@
         </li>
         <% if current_user %>
           <li class="nav-item" data-controller="user-dropdown">
-            <%= image_tag 'user.png', class:"avatar", data: { action: 'click->user-dropdown#toggleDropdown' } %>
+            <%= cl_image_tag current_user.photo.key, class: 'avatar', crop: :fill, data: { action: 'click->user-dropdown#toggleDropdown' } %>
             <ul class="user-dropdown disapear" data-user-dropdown-target='dropdownList' data-change-navbar-background-target='secondDropdownList'>
               <li class="user-dropdown-item">
                 <%= link_to 'Mon compte', user_path(current_user) %>
