@@ -1,8 +1,46 @@
-<%= simple_form_for @painting do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :photo, as: :file %>
-  <%= f.input :price %>
-  <%= f.input :sell %>
-  <%= f.submit 'Créer' %>
-<% end %>
+<div class="container">
+  <div class="painting-form">
+    <%= simple_form_for @painting do |f| %>
+      <div class="form-part">
+        <div class="form-group">
+          <%= f.label 'Nom du tableau' %>
+          <%= f.input :title,
+                      label: false,
+                      required: true %>
+        </div>
+        <div class="form-group-text">
+          <%= f.label 'Décrire en quelques mots le tableau' %>
+          <%= f.input :description,
+                      label: false,
+                      required: true %>
+        </div>
+        <div class="form-group">
+          <%= f.label 'A quel prix ?' %>
+          <%= f.input :price,
+                      label: false,
+                      as: :decimal,
+                      placeholder: '0,00',
+                      required: true %>
+        </div>
+        <div class="form-group checkbox">
+          <%= f.label 'Est-il à vendre ?' %>
+          <%= f.collection_radio_buttons :sell, [[true, 'Oui'], [false, 'Non']], :first, :last, label: false %>
+        </div>
+      </div>
+      <div class="form-part">
+        <div class="form-group-picture" data-controller="file-upload">
+          <%= f.label 'Photo du tableau' %>
+          <ul class="overview-div" data-file-upload-target='overview'></ul>
+          <%= f.input :photo,
+                      as: :file,
+                      label: false,
+                      input_html: { class: 'upload-button' } %>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <%= f.submit 'Créer', class: 'btn-principal' %>
+      </div>
+    <% end %>
+  </div>
+</div>

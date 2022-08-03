@@ -19,6 +19,9 @@ application.register("disapear-footer", DisapearFooterController)
 import DisapearNavbarController from "./disapear_navbar_controller.js"
 application.register("disapear-navbar", DisapearNavbarController)
 
+import FileUploadController from "./file_upload_controller.js"
+application.register("file-upload", FileUploadController)
+
 import GenerateBackgroundController from "./generate_background_controller.js"
 application.register("generate-background", GenerateBackgroundController)
 

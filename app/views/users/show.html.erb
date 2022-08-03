@@ -29,7 +29,7 @@
           <% end %>
         </li>
         <li>Mot de passe: ********</li>
-        <li>Membre depuis: <%= @user.created_at %></li>
+        <li>Membre depuis le <%= l @user.created_at, format: "%e %b %Y", locale: 'fr' %></li>
       </ul>
     </div>
     <%= link_to user_orders_path(@user) do %>
