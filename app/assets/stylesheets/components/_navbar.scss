@@ -7,6 +7,7 @@
   top: 0;
   $navbar-height: 194.781px;
   height: $navbar-height;
+  z-index: 1;
   .container {
     display: flex;
     flex-direction: column;
@@ -28,6 +29,7 @@
       padding: 12px;
       position: relative;
       cursor: pointer;
+      z-index: 1;
     }
     .button_to > button {
       background: transparent;
@@ -45,7 +47,6 @@
 }
 
 .main-user-dropdown {
-  z-index: 10;
   background-color: #DBD0C0;
   position: absolute;
   width: 100%;

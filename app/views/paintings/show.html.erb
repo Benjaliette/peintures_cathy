@@ -11,4 +11,11 @@
       <%= f.submit 'ACHETER', class: "btn-principal" %>
     <% end %>
   </div>
+  <% if policy(Painting).create? %>
+    <div class="btn-group">
+      <%= link_to "Rajouter un joli tableau", new_painting_path, class: 'btn-success' %>
+      <%= link_to "Modifier le tableau", edit_painting_path(@painting), class: 'btn-notice' %>
+      <%= link_to "Supprimer le tableau", painting_path(@painting), data: { turbo_method: :delete, turbo_confirm: "C'est votre dernier mot?" }, class: 'btn-warning' %>
+    </div>
+  <% end %>
 </div>
