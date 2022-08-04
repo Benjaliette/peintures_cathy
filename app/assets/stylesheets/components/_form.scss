@@ -222,6 +222,7 @@
   .form-group-picture {
     margin: 20px 0;
     width: 100%;
+    text-align: center;
 
     input {
       width: 100%;
@@ -233,31 +234,41 @@
       align-items: center;
     }
 
-    .upload-button::-webkit-file-upload-button {
+    .upload-button::file-selector-button {
       visibility: hidden;
     }
 
     .upload-button::before {
       content: 'Télécharger la photo';
+
+      &.edit {
+        content: 'Modifier la photo'
+      }
+
+      text-align: center;
+      padding: 10px;
+      font-weight: bold;
       display: inline-block;
-      background: linear-gradient(top, #f9f9f9, #e3e3e3);
-      border: 1px solid #999;
-      border-radius: 3px;
-      padding: 5px 8px;
+      margin: 0 2.5%;
+      color: #fff;
+      background: $blue;
+      border: none;
+      width: 90%;
+      height: 15px;
+      border-radius: 4px;
+      border-bottom: 4px solid rgb(12, 1, 47);
+      transition: all .2s ease;
       outline: none;
-      white-space: nowrap;
       cursor: pointer;
-      text-shadow: 1px 1px #fff;
-      font-weight: 700;
-      font-size: 10pt;
     }
 
     .upload-button:hover::before {
-      border-color: black;
+      background: #113a64;
+      color: lightgray;
     }
 
     .upload-button:active::before {
-      background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+      border:0;
     }
 
     .overview-div {
@@ -293,6 +304,8 @@
         height: 15vh;
         padding: 10px;
         font-family: $body-font;
+        overflow: auto;
+        word-wrap: break-word;
       }
     }
   }

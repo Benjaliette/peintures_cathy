@@ -36,11 +36,7 @@ class PaintingsController < ApplicationController
   def update
     @painting.update(painting_params)
 
-    if @painting.save
-      redirect_to painting_path(@painting)
-    else
-      render :edit
-    end
+    redirect_to painting_path(@painting)
   end
 
   def destroy
