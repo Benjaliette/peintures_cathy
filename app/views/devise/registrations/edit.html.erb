@@ -1,38 +1,61 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<% content_for(:title, "Modification de mon profil")%>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-
-    <%= f.input :first_name, required: true %>
-    <%= f.input :last_name, required: true %>
-
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+<div data-controller="disapear-navbar disapear-footer">
+  <div class='devise-logo'>
+    <%= link_to paintings_path do %>
+      <%= image_tag 'black_signature.png' %>
     <% end %>
-
-    <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
   </div>
+  <div class="id-form">
+    <h1 class="form-title">Modification du profil de <%= "#{@user.first_name} #{@user.last_name}" %></h1>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }, html: { method: :put }) do |f| %>
+        <%= f.error_notification %>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+        <div class="form-inputs">
+          <div class="form-group">
+            <%= f.label :first_name, 'Prénom' %>
+            <%= f.text_field :first_name,
+                        required: false,
+                        autofocus: true,
+                        input_html: { autocomplete: "Prénom" } %>
+          </div>
+          <div class="form-group">
+            <%= f.label :last_name, 'Nom' %>
+            <%= f.text_field :last_name,
+                        required: false,
+                        input_html: { autocomplete: "Nom" } %>
+          </div>
+          <div class="form-group">
+            <%= f.label :email, 'Adresse e-mail' %>
+            <%= f.email_field :email,
+                      required: false,
+                      input_html: { autocomplete: "email" } %>
+          </div>
+          <div class="form-group">
+            <%= f.label :address, 'Adresse postale' %>
+            <%= f.text_field :address,
+                      required: false,
+                      input_html: { autocomplete: "adresse" } %>
+          </div>
+          <div class="form-group">
+            <%= f.label :password, 'Mot de passe' %>
+            <%= f.password_field :password,
+                      required: false,
+                      placeholder: "******",
+                      input_html: { autocomplete: "Mot de passe" } %>
+          </div>
+          <div class="form-group">
+            <%= f.label :password_confirmation, 'Confirmation du mot de passe' %>
+            <%= f.password_field :password_confirmation,
+                      required: false,
+                      placeholder: "******",
+                      input_html: { autocomplete: "Confirmation du mot de passe" } %>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Mettre à jour", class: 'btn-principal' %>
+        </div>
+      <% end %>
   </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</div>

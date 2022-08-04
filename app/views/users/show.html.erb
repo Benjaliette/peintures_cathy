@@ -17,22 +17,24 @@
     </div>
   </div>
   <div class="user-cards">
-    <div class="user-cards-infos">
-      <div class="user-infos-title">Mes informations</div>
-      <ul class="user-infos-edit-list">
-        <li><span class="pen-brush">Email:</span> <%= @user.email %></li>
-        <li>
-          Adresse (pour livraison):
-          <% if @user.address %>
-            <%= @user.address %>
-          <% else %>
-            <span class='sm-italic'>vous n'avez pas encore renseigné d'adresse</span>
-          <% end %>
-        </li>
-        <li>Mot de passe: ********</li>
-        <li>Membre depuis le <%= l @user.created_at, format: "%e %b %Y", locale: 'fr' %></li>
-      </ul>
-    </div>
+    <%= link_to edit_user_registration_path(@user) do %>
+      <div class="user-cards-infos">
+        <div class="user-infos-title">Mes informations</div>
+        <ul class="user-infos-edit-list">
+          <li><span class="pen-brush">Email:</span> <%= @user.email %></li>
+          <li>
+            Adresse (pour livraison):
+            <% if @user.address %>
+              <%= @user.address %>
+            <% else %>
+              <span class='sm-italic'>vous n'avez pas encore renseigné d'adresse</span>
+            <% end %>
+          </li>
+          <li>Mot de passe: ********</li>
+          <li>Membre depuis le <%= l @user.created_at, format: "%e %b %Y", locale: 'fr' %></li>
+        </ul>
+      </div>
+    <% end %>
     <%= link_to user_orders_path(@user) do %>
       <div class="user-cards-infos">
         <div class="user-infos-title">Mes commandes</div>

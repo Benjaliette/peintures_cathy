@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  get 'users/show'
-  devise_for :users
+
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
+
   root to: "pages#home"
 
   resources :paintings, only: %i[index show new create edit update destroy] do
