@@ -1,3 +1,4 @@
+<% content_for(:title, "Mes commandes")%>
 <ul>
   <% @orders.each do |order| %>
     <li><%= link_to order.painting.title, user_order_path(order.user, order) %></li>

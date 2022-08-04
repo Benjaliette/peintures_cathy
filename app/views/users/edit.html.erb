@@ -1,3 +1,4 @@
+<% content_for(:title, "Modification des informations de #{@user.first_name}")%>
 <%= simple_form_for(@user) do |f| %>
   <%= f.input :photo, as: :file %>
   <%= f.submit 'Changer la photo' %>
