@@ -5,7 +5,8 @@
         <div class="product-card">
           <div class="product-card-img" style='background-image: url(<%= cl_image_path painting.photo.key %>)'></div>
           <div class="product-card-infos">
-            <div><%= painting.title %></div>
+            <div class="product-card-title"><%= painting.title %></div>
+            <div class="product-card-description"><%= painting.description %></div>
           </div>
         </div>
       <% end %>

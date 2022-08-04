@@ -10,6 +10,10 @@
     .product-card-img {
       height: 100px;
     }
+
+    .product-card-description {
+      visibility: visible;
+    }
   }
 }
 
@@ -24,7 +28,18 @@
 
 .product-card-infos {
   padding: 20px;
-  font-weight: bold;
+
+  .product-card-title {
+    font-weight: bold;
+  }
+
+  .product-card-description {
+    font-size: 14px;
+    text-align: justify;
+    visibility: hidden;
+
+    margin-top: 20px;
+  }
 }
 
 // ===== CARDS FOR ALL PAINTINGS ===== //
