@@ -8,9 +8,7 @@
       <h2><%= @painting.title %></h2>
       <div>Prix: <%= humanized_money(@painting.price) %> €</div>
     </div>
-    <%= simple_form_for [@painting, @order] do |f| %>
-      <%= f.submit 'ACHETER', class: "btn-principal" %>
-    <% end %>
+    <%= link_to 'ACHETER', new_painting_order_path(@painting), class: 'btn-principal' %>
   </div>
   <% if policy(Painting).create? %>
     <div class="btn-group">

@@ -1,0 +1,44 @@
+<% content_for(:title, "Commande de #{@painting.title}")%>
+<div class="container">
+  <div class="recap-parts">
+    <div class="recap-part-left">
+      <div>
+        <h1>Récapitulatif de la commande</h1>
+        <p><strong>Tableau:</strong> <%= @painting.title %></p>
+      </div>
+      <div class='recap-form'>
+        <h2>Adresse de livraison:</h2>
+        <%= simple_form_for current_user do |f| %>
+          <%= f.input :address, label: false, wrapper_html: { class: 'form-group' } %>
+          <div class="form-actions">
+            <%= f.submit 'Enregistrer' %>
+          </div>
+        <% end %>
+      </div>
+      <div class='recap-form'>
+        <h2>Adresse de facturation:</h2>
+        <%= simple_form_for [@painting, @order] do |f| %>
+          <%= f.input :address, label: false, wrapper_html: { class: 'form-group' } %>
+          <div class="form-actions">
+            <%= f.submit 'Enregistrer' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="recap-part-right">
+      <div class="recap-card">
+        <%= cl_image_tag @painting.photo.key %>
+        <div class="recap-card-price">
+          <div>
+            <p class="margin-bottom-none"><strong>Prix total (TTC):</strong></p>
+            <div class="sm-italic">(frais de livraison compris)</div>
+          </div>
+          <p><%= @painting.price %> €</p>
+        </div>
+        <%= simple_form_for [@painting, @order], data: { turbo: false } do |f| %>
+          <%= f.submit 'Payer', class: 'btn-principal no-border' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

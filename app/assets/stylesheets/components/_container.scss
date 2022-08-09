@@ -25,3 +25,9 @@
     width: 100%;
   }
 }
+
+.recap-parts {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  grid-column-gap: 50px;
+}
