@@ -9,7 +9,17 @@
       <div class='recap-form'>
         <h2>Adresse de livraison:</h2>
         <%= simple_form_for current_user do |f| %>
-          <%= f.input :address, label: false, wrapper_html: { class: 'form-group' } %>
+          <%= f.input :address,
+                      label: false,
+                      input_html: {
+                        class: 'disapear',
+                        data: {address_autocomplete_target: "address"}
+                      },
+                      wrapper_html: {
+                        class: 'form-group',
+                        data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"], address_autocomplete_address_value: current_user.address}
+                      }
+          %>
           <div class="form-actions">
             <%= f.submit 'Enregistrer' %>
           </div>
@@ -18,7 +28,17 @@
       <div class='recap-form'>
         <h2>Adresse de facturation:</h2>
         <%= simple_form_for [@painting, @order] do |f| %>
-          <%= f.input :address, label: false, wrapper_html: { class: 'form-group' } %>
+          <%= f.input :address,
+                      label: false,
+                      input_html: {
+                        class: 'disapear',
+                        data: {address_autocomplete_target: "address"}
+                      },
+                      wrapper_html: {
+                        class: 'form-group',
+                        data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}
+                      }
+          %>
           <div class="form-actions">
             <%= f.submit 'Enregistrer' %>
           </div>

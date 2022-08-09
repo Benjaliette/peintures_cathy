@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import AddressAutocompleteController from "./address_autocomplete_controller.js"
+application.register("address-autocomplete", AddressAutocompleteController)
+
 import AdminModalController from "./admin_modal_controller.js"
 application.register("admin-modal", AdminModalController)
 

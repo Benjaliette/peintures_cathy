@@ -345,7 +345,7 @@
     margin: 20px 0;
 
     input {
-      width: 80%;
+      width: 90%;
       height: 40px;
       border-radius: 5px;
       border: 1px solid gray;
@@ -358,6 +358,48 @@
     display: none;
     input {
       border: 0;
+    }
+  }
+}
+
+//===== STYLE FOR ADRESS GEOCODING =====//
+
+.mapboxgl-ctrl-geocoder--icon {
+  display: none;
+}
+
+.mapboxgl-ctrl-geocoder--input {
+  border: solid 1px lightgray;
+  border-radius: 4px;
+  width: 90%;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.mapboxgl-ctrl-geocoder--pin-right {
+  display: none;
+}
+
+.suggestions-wrapper {
+  border-radius: 4px;
+  width: 90%;
+  padding: 10px;
+  font-size: 15px;
+
+  .suggestions {
+    background: white;
+    list-style: none;
+    text-align: left;
+    border-left: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+    padding: 20px;
+
+    li {
+      padding: 5px 0;
+      cursor: pointer;
+      &:hover {
+        font-weight: bold;
+      }
     }
   }
 }
