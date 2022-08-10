@@ -1,6 +1,15 @@
 <% content_for(:title, "Mes commandes")%>
-<ul>
-  <% @orders.each do |order| %>
-    <li><%= link_to order.painting.title, user_order_path(order.user, order) %></li>
-  <% end %>
-</ul>
+<div class="container">
+  <h1>Ce que vous avez commander sur CLIET-tableaux.com</h1>
+  <ul class="user-orders-list margin-x-none">
+    <% @orders.each do |order| %>
+      <li class="order-card">
+        <%= cl_image_tag order.painting.photo.key, class:"order-card-img" %>
+        <div class="order-card-description">
+          <h2><%= link_to order.painting.title, user_order_path(order.user, order) %></h2>
+          <div>Commandé le <%= order.created_at %></div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
