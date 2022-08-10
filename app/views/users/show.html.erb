@@ -23,7 +23,7 @@
         <ul class="user-infos-edit-list">
           <li><span class="pen-brush">Email:</span> <%= @user.email %></li>
           <li>
-            Adresse (pour livraison):
+            Adresse (pour livraison):<br>
             <% if @user.address %>
               <%= @user.address %>
             <% else %>
@@ -33,6 +33,7 @@
           <li>Mot de passe: ********</li>
           <li>Membre depuis le <%= l @user.created_at, format: "%e %b %Y", locale: 'fr' %></li>
         </ul>
+        <div class='sm-italic user-infos-modif'>modifier</div>
       </div>
     <% end %>
     <%= link_to user_orders_path(@user) do %>
@@ -45,12 +46,14 @@
             <% end %>
           </ul>
         </div>
+        <div class='sm-italic user-infos-modif'>détails</div>
       </div>
     <% end %>
     <% if @user.admin %>
       <div class="user-card-infos user-admin" data-controller="admin-modal">
         <div class="user-infos-title">Tableau de bord</div>
         <ul class="user-admin-actions">
+          <li><%= link_to 'Liste des commandes', user_orders_path(@user) %></li>
           <li><%= link_to 'Ajouter un tableau', new_painting_path %></li>
           <li data-action="click->admin-modal#editModalAppear">Modifier un tableau</li>
           <li data-action="click->admin-modal#deleteModalAppear">Supprimer un tableau</li>

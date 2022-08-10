@@ -3,7 +3,7 @@ import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 
 // Connects to data-controller="address-autocomplete"
 export default class extends Controller {
-  static values = { apiKey: String }
+  static targets = [ 'address' ]
 
   static values = {
     apiKey: String,
@@ -11,6 +11,7 @@ export default class extends Controller {
   }
 
   connect() {
+    const input = document.querySelector("#order_address")
     this.geocoder = new MapboxGeocoder({
       accessToken: this.apiKeyValue,
       types: "country,region,place,postcode,locality,neighborhood,address",
@@ -22,10 +23,16 @@ export default class extends Controller {
   }
 
   #setInputValue(event) {
+    const input = document.querySelector("#order_address")
+
     this.addressTarget.value = event.result["place_name"]
+    input.value = event.result["place_name"]
   }
 
   #clearInputValue() {
+    const input = document.querySelector("#order_address")
+
     this.addressTarget.value = ""
+    input.value = ""
   }
 }

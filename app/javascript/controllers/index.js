@@ -10,6 +10,9 @@ application.register("address-autocomplete", AddressAutocompleteController)
 import AdminModalController from "./admin_modal_controller.js"
 application.register("admin-modal", AdminModalController)
 
+import BillingAddressAppearController from "./billing_address_appear_controller.js"
+application.register("billing-address-appear", BillingAddressAppearController)
+
 import ChangeNavbarBackgroundController from "./change_navbar_background_controller.js"
 application.register("change-navbar-background", ChangeNavbarBackgroundController)
 

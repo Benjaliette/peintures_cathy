@@ -5,4 +5,8 @@ class Order < ApplicationRecord
   # Associations
   belongs_to :user
   belongs_to :painting
+
+  accepts_nested_attributes_for :user, allow_destroy: true
+
+  validates :address, presence: true
 end

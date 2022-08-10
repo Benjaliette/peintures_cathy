@@ -19,12 +19,18 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order  = Order.create!(painting: @painting, amount: @painting.price, state: 'pending', user: current_user)
+    @order = Order.new(order_params)
+    @order.painting = @painting
+    @order.amount = @painting.price
+    @order.state = 'pending'
+    current_user.update(user_params)
+    current_user.save
+    @order.user = current_user
+    authorize @order
 
     if @order.save
       session = set_stripe_session
       @order.update(checkout_session_id: session.id)
-      authorize @order
 
       redirect_to session.url, allow_other_host: true
     else
@@ -38,6 +44,14 @@ class OrdersController < ApplicationController
   end
 
   private
+
+  def order_params
+    params.require(:order).permit(:address)
+  end
+
+  def user_params
+    params.require(:user).permit(:address)
+  end
 
   def set_painting
     @painting = policy_scope(Painting).find(params[:painting_id])
