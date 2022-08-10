@@ -56,7 +56,17 @@ class OrdersController < ApplicationController
     })
   end
 
+  def set_stripe_customer
+    Stripe::Customer.create({
+      address: current_user.cut_address_in_parts,
+      email: current_user.email,
+      name: "#{current_user.first_name} #{current_user.last_name}",
+      metadata: { id: current_user.id }
+    })
+  end
+
   def set_stripe_session
+    customer = set_stripe_customer
     product = set_stripe_product
     price = set_stripe_price(product)
 
@@ -66,8 +76,9 @@ class OrdersController < ApplicationController
         price: price.id,
         quantity: 1,
       }],
+      customer: customer,
       mode: 'payment',
-      success_url: user_order_url(current_user, @order),
+      success_url: "#{success_pages_url}?session_id={CHECKOUT_SESSION_ID}",
       cancel_url: user_order_url(current_user, @order)
     )
   end

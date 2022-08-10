@@ -162,10 +162,16 @@
   background: url("https://s2.svgbox.net/pen-brushes.svg?ic=brush-10&color=FD5D5D");
 }
 
+.user-infos-content {
+  overflow: auto;
+  height: 80%
+}
+
 .user-orders-list, .user-infos-edit-list, .user-admin-actions {
   list-style-type: none;
   padding: 0;
   margin: 15px;
+  overflow: auto;
 
   li {
     margin: 15px 0;

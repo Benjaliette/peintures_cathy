@@ -9,4 +9,8 @@ class PagesController < ApplicationController
 
   def artiste
   end
+
+  def success
+
+  end
 end

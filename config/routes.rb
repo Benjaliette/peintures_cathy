@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     collection do
       get 'contact'
       get 'artiste'
+      get 'success'
     end
   end
 

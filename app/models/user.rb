@@ -17,6 +17,18 @@ class User < ApplicationRecord
 
   has_one_attached :photo
 
+  def cut_address_in_parts
+    address = self.address.split(', ')
+    {
+      line1: address[0],
+      postal_code: address[1].split(' ')[0].to_i,
+      city: address[1].split(' ')[1],
+      country: address[2] == "France" ? 'FR' : ''
+    }
+  end
+
+
+
   private
 
   def send_welcome_email

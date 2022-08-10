@@ -38,11 +38,13 @@
     <%= link_to user_orders_path(@user) do %>
       <div class="user-cards-infos">
         <div class="user-infos-title">Mes commandes</div>
-        <ul class="user-orders-list">
-          <% @user.orders.each do |order| %>
-            <li><%= order.painting.title %></li>
-          <% end %>
-        </ul>
+        <div class="user-infos-content">
+          <ul class="user-orders-list">
+            <% @user.orders.each do |order| %>
+              <li><%= order.painting.title %></li>
+            <% end %>
+          </ul>
+        </div>
       </div>
     <% end %>
     <% if @user.admin %>
