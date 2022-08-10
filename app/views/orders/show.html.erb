@@ -1,2 +1,13 @@
 <% content_for(:title, "Achat de #{@painting.title}")%>
-<%= @order %>
+<div class="container">
+    <div class="peinture-detail-img">
+    <%= cl_image_tag @painting.photo.key %>
+  </div>
+  <div class="peinture-detail-legend">
+    <div class="peinture-detail-infos">
+      <h2><%= @painting.title %></h2>
+      <div>Prix: <%= humanized_money(@painting.price) %> €</div>
+      <div>Commandé le <%= l @order.created_at, format: "%e %b %Y", locale: 'fr' %></div>
+    </div>
+  </div>
+</div>

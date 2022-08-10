@@ -218,7 +218,7 @@
   margin: 10px 0;
 
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .order-card-img {
@@ -230,4 +230,8 @@
 .order-card-description {
   padding: 20px;
   flex-grow: 1;
+
+  a:hover {
+    font-weight: bold;
+  }
 }
