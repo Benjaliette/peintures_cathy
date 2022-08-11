@@ -8,7 +8,8 @@
   </div>
   <div class="peinture-detail-legend">
     <div class="peinture-detail-infos">
-      <h2><%= @painting.title %></h2>
+      <h1><%= @painting.title %></h1>
+      <p><%= @painting.description %></p>
       <div>Prix: <%= humanized_money(@painting.price) %> €</div>
     </div>
     <%= link_to 'ACHETER', new_painting_order_path(@painting), class: 'btn-principal' %>
