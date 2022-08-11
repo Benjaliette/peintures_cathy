@@ -81,6 +81,9 @@ gem 'stripe'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
+# Gem to create Stripe Webhook
+gem 'stripe_event'
+
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
 

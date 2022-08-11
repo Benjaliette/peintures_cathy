@@ -2,6 +2,8 @@
   <% session = Stripe::Checkout::Session.retrieve(params[:session_id]) %>
   <% customer = Stripe::Customer.retrieve(session.customer) %>
 
+  <%= session %>
+
   <div class='order-success-div'>
     <div class='order-check'><%= image_tag 'check.png' %></div>
     <h1>Merci <%= customer.name %> pour votre commande</h1>
