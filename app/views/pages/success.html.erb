@@ -1,13 +1,18 @@
-<div class="container" data-controller="disapear-footer">
+<div class="container">
   <% session = Stripe::Checkout::Session.retrieve(params[:session_id]) %>
   <% customer = Stripe::Customer.retrieve(session.customer) %>
 
-  <div>
-    <h3>Merci <%= customer.name %> pour votre commande</h3>
+  <div class='order-success-div'>
+    <div class='order-check'><%= image_tag 'check.png' %></div>
+    <h1>Merci <%= customer.name %> pour votre commande</h1>
+
+    <p>
+      Le tableau vous sera livré sous <strong>5 jours ouvrés</strong> via Collissimo.
+      Pour toute réclamation ou retard, veuillez nous contacter via le <%= link_to 'formulaire de contact', contact_pages_path %>
+    </p>
 
     <p>Un mail de confirmation vous a été envoyé à <%= customer.email %></p>
 
     <p>Pour voir le détail de votre commande, allez sur <%= link_to "mon compte", user_path(current_user) %></p>
-    <p>Pour retourner à la page d'accueil, <%= link_to "cliquez ici", root_path %></p>
   </div>
 </div>

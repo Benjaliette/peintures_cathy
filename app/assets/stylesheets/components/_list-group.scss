@@ -13,3 +13,22 @@
     }
   }
 }
+
+.order-success-div {
+  width: 70%;
+  margin: 0 auto;
+
+  h1 {
+    width: 50%;
+    margin: 0 auto 50px auto;
+    text-align: center;
+  }
+
+  a {
+    text-decoration: underline;
+
+    &:hover {
+      font-weight: bold;
+    }
+  }
+}
