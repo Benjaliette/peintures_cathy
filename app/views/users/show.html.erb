@@ -1,4 +1,6 @@
 <% content_for(:title, "Compte de #{@user.first_name}")%>
+<% content_for :meta_description, @user.complete_name %>
+<% content_for :meta_image, cl_image_path(@user.photo.key) %>
 <div class="container">
   <div class="user-infos">
     <div class="user-infos-container">

@@ -1,4 +1,6 @@
 <% content_for(:title, @painting.title)%>
+<% content_for :meta_description, @painting.description %>
+<% content_for :meta_image, cl_image_path(@painting.photo.key) %>
 <div class="container">
   <div class="peinture-detail-img">
     <%= cl_image_tag @painting.photo.key %>
