@@ -23,7 +23,7 @@ class PaintingsController < ApplicationController
     @painting = Painting.new(painting_params)
     authorize @painting
 
-    if @painting.save!
+    if @painting.save
       redirect_to painting_path(@painting)
     else
       render :new
@@ -49,7 +49,7 @@ class PaintingsController < ApplicationController
   private
 
   def set_painting
-    @painting = Painting.find(params[:id])
+    @painting = Painting.friendly.find(params[:id])
     authorize @painting
   end
 

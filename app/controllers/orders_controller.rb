@@ -2,12 +2,12 @@ class OrdersController < ApplicationController
   before_action :set_painting, only: %i[new create]
 
   def index
-    @user = policy_scope(User).find(params[:user_id])
+    @user = policy_scope(User).friendly.find(params[:user_id])
     @orders = @user.orders
   end
 
   def show
-    @order = Order.find(params[:id])
+    @order = Order.friendly.find(params[:id])
     authorize @order
 
     @painting = @order.painting
@@ -39,7 +39,7 @@ class OrdersController < ApplicationController
   end
 
   def paiement
-    @order = Order.find(params[:id])
+    @order = Order.friendly.find(params[:id])
     authorize @order
   end
 
@@ -54,7 +54,7 @@ class OrdersController < ApplicationController
   end
 
   def set_painting
-    @painting = policy_scope(Painting).find(params[:painting_id])
+    @painting = policy_scope(Painting).friendly.find(params[:painting_id])
   end
 
   def set_stripe_product

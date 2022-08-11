@@ -24,6 +24,9 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 # Use Fontawesome to add icons in front
 gem "font-awesome-sass", "~> 6.1"
 
+# This gem is used to generate more friendly url
+gem 'friendly_id', '~> 5.4.0'
+
 # Use Geocoder to attach address to customers and to have autocompletion
 gem "geocoder"
 
@@ -118,4 +121,3 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
-gem "sassc-rails"

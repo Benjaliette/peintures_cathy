@@ -37,5 +37,8 @@ application.register("hello", HelloController)
 import PaintingZoomController from "./painting_zoom_controller.js"
 application.register("painting-zoom", PaintingZoomController)
 
+import UserAddressAutocompleteController from "./user_address_autocomplete_controller.js"
+application.register("user-address-autocomplete", UserAddressAutocompleteController)
+
 import UserDropdownController from "./user_dropdown_controller.js"
 application.register("user-dropdown", UserDropdownController)

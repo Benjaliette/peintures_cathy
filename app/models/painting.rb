@@ -1,4 +1,7 @@
 class Painting < ApplicationRecord
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   # Money rails determining price
   monetize :price_cents
 
