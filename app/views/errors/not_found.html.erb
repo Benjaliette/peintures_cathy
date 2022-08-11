@@ -1,0 +1,16 @@
+<div data-controller="disapear-navbar disapear-footer">
+  <div class='devise-logo'>
+    <%= link_to available_paintings_path do %>
+      <%= image_tag 'black_signature.png' %>
+    <% end %>
+  </div>
+  <div class="error-page">
+    <h1>La page à laquelle vous essayez d'accéder n'existe pas</h1>
+    <p>
+    Vous pouvez soit revenir sur la page précédente,
+    soit revenir à la page d'accueil en cliquant sur le logo du site
+    <% if current_user %>
+      , ou alors vous diriger vers votre compte <%= link_to 'ICI', user_path(current_user) %></p>
+    <% end %>
+  </div>
+</div>
