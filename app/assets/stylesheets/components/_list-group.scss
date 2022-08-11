@@ -32,3 +32,16 @@
     }
   }
 }
+
+.biography-text {
+  text-align: justify;
+}
+
+.biography-img {
+  width: 100%;
+
+  img {
+    margin-top: 1em;
+    width: 100%
+  }
+}
