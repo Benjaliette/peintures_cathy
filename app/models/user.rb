@@ -30,6 +30,10 @@ class User < ApplicationRecord
     }
   end
 
+  def complete_name
+    "#{self.first_name} #{self.last_name}"
+  end
+
   private
 
   def send_welcome_email
@@ -41,9 +45,5 @@ class User < ApplicationRecord
       file = URI.open('https://res.cloudinary.com/dxcrr7aon/image/upload/v1659517750/kmciusgydovfekdvnhxm.png')
       self.photo.attach(io: file, filename: 'default_user.png', content_type: 'image/png')
     end
-  end
-
-  def complete_name
-    "#{self.first_name} #{self.last_name}"
   end
 end

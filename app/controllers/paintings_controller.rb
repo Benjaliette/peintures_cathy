@@ -2,6 +2,8 @@ class PaintingsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index available show]
   before_action :set_painting, only: %i[show edit update destroy]
 
+  add_breadcrumb "Peintures à vendre", :available_paintings_path
+
   def index
     @paintings = policy_scope(Painting)
   end
@@ -12,6 +14,7 @@ class PaintingsController < ApplicationController
 
   def show
     @order = Order.new
+    add_breadcrumb @painting.title, painting_path(@painting)
   end
 
   def new

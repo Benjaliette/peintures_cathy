@@ -1,6 +1,7 @@
 <% content_for(:title, "Achat de #{@painting.title}")%>
 <div class="container">
-    <div class="peinture-detail-img">
+  <div class='breadcrumbs'><%= render_breadcrumbs :separator => ' > ' %></div>
+  <div class="peinture-detail-img">
     <%= cl_image_tag @painting.photo.key %>
   </div>
   <div class="peinture-detail-legend">

@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update]
 
+  add_breadcrumb "Mon compte", :user_path
+
   def show
     @paintings = Painting.all
   end

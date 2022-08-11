@@ -12,6 +12,9 @@ gem "autoprefixer-rails"
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
+# Gem for breadcrumb
+gem "breadcrumbs_on_rails"
+
 # Use Cloudinary to store images on cloud
 gem 'cloudinary'
 

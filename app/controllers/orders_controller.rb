@@ -1,6 +1,8 @@
 class OrdersController < ApplicationController
   before_action :set_painting, only: %i[new create]
 
+  add_breadcrumb "Mes commandes", :user_orders_path
+
   def index
     @user = policy_scope(User).friendly.find(params[:user_id])
     @orders = @user.orders
@@ -11,6 +13,8 @@ class OrdersController < ApplicationController
     authorize @order
 
     @painting = @order.painting
+
+    add_breadcrumb @order.painting.title, user_order_path(current_user, @order)
   end
 
   def new
