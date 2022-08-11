@@ -42,4 +42,6 @@ Rails.application.routes.draw do
   match "/old_path_to_paintings/:id", to: redirect("/paintings/%{id}s"), via: :get
 
   get '/sitemap.xml' => 'sitemaps#index', defaults: { format: 'xml' }
+
+  get "/robots.:format", to: "pages#robots"
 end

@@ -12,6 +12,9 @@ class PagesController < ApplicationController
   end
 
   def success
+  end
 
+  def robots
+    respond_to :text
   end
 end
