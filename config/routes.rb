@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'sitemaps/index'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   devise_for :users, controllers: {
@@ -39,4 +40,6 @@ Rails.application.routes.draw do
 
   match "/old_path_to_users/:id", to: redirect("/users/%{id}s"), via: :get
   match "/old_path_to_paintings/:id", to: redirect("/paintings/%{id}s"), via: :get
+
+  get '/sitemap.xml' => 'sitemaps#index', defaults: { format: 'xml' }
 end
