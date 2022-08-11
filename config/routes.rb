@@ -36,4 +36,7 @@ Rails.application.routes.draw do
   match "/404", to: "errors#not_found", via: :all
   match "/422", to: "errors#unacceptable", via: :all
   match "/500", to: "errors#internal_server_error", via: :all
+
+  match "/old_path_to_users/:id", to: redirect("/users/%{id}s"), via: :get
+  match "/old_path_to_paintings/:id", to: redirect("/paintings/%{id}s"), via: :get
 end
