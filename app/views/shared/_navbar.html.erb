@@ -111,18 +111,7 @@
           </li>
           <% if current_user %>
             <li class="toggle-nav-item">
-              <span id="account-tab">Mon compte</span>
-              <ul class="main-user-dropdown disapear">
-                <li class="main-user-dropdown-item">
-                  <%= link_to 'Mon compte', user_path(current_user) %>
-                </li>
-                <li class="main-user-dropdown-item">
-                  <%= link_to 'Mes commandes', user_orders_path(current_user) %>
-                </li>
-                <li class="main-user-dropdown-item">
-                  <%= button_to 'Déconnexion', destroy_user_session_path, method: :delete %>
-                </li>
-              </ul>
+              <%= link_to 'Mon compte', user_path(current_user) %>
             </li>
           <% else %>
             <li class="toggle-nav-item">

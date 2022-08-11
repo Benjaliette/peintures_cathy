@@ -110,6 +110,13 @@
   padding: 2px 5px;
 }
 
+@media (max-width: 900px) {
+  .painting-card-zoom {
+    opacity: 1;
+    font-size: 12px;
+  }
+}
+
 // ===== CARDS FOR USER PAGE ===== //
 
 .user-infos {
@@ -212,6 +219,40 @@
   }
 }
 
+@media (max-width: 900px) {
+  .user-infos {
+    .user-infos-container {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .user-cards {
+    grid-template-columns: 1fr;
+    grid-column-gap: 0px;
+  }
+
+  .user-cards-infos, .user-admin {
+    height: 40vh;
+  }
+}
+
+@media (max-width: 500px) {
+  .user-infos {
+    .user-infos-container {
+      h1 {
+        font-size: 18px;
+      }
+
+      .avatar-lg {
+        width: 60px;
+        height: 60px;
+      }
+    }
+  }
+}
+
 //===== CARDS FOR NEW ORDER PAGE =====//
 
 .recap-card {
@@ -267,5 +308,26 @@
 
   a:hover {
     font-weight: bold;
+  }
+}
+
+@media (max-width: 500px) {
+  .order-card-img {
+    height: 100%;
+    width: 40%;
+    object-fit: cover;
+  }
+
+  .order-card-description {
+    padding: 10px;
+
+    h2 {
+      font-size: 16px;
+    }
+
+    .mobile-display {
+      font-size: 12px;
+      font-style: italic;
+    }
   }
 }

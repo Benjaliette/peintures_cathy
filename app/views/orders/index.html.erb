@@ -7,7 +7,7 @@
         <%= cl_image_tag order.painting.photo.key, class:"order-card-img" %>
         <div class="order-card-description">
           <h2><%= link_to order.painting.title, user_order_path(order.user, order) %></h2>
-          <div>Commandé le <%= l order.created_at, format: "%e %b %Y", locale: 'fr' %></div>
+          <div class='mobile-display'>Commandé le <%= l order.created_at, format: "%e %b %Y", locale: 'fr' %></div>
         </div>
       </li>
     <% end %>
