@@ -1,4 +1,6 @@
-<div class="navbar" data-controller="change-navbar-background" data-action="scroll@window->change-navbar-background#modifyNavbar">
+<div class="navbar"
+  data-controller="change-navbar-background"
+  data-action="scroll@window->change-navbar-background#modifyNavbar resize@window->change-navbar-background#toggle">
   <div class="navbar-principal" data-change-navbar-background-target="principal">
     <div class="container">
       <div class="logo">
@@ -80,6 +82,55 @@
           </li>
         <% end %>
       </ul>
+    </div>
+  </div>
+  <div class="navbar-mobile disapear"
+       data-change-navbar-background-target="mobile"
+       data-controller="navbar-responsivity">
+    <div class="container">
+      <div class="logo">
+        <%= link_to root_path do %>
+          <%= image_tag 'black_signature.png' %>
+        <% end %>
+      </div>
+      <div class="hamburger"
+         data-action="click->navbar-responsivity#toggleDropdown">
+        <i class="fa-solid fa-bars fa-xl" data-navbar-responsivity-target="hamburgerIcon"></i>
+        <ul class="toggle-nav-items disapear" data-navbar-responsivity-target="navItems">
+          <li class="toggle-nav-item">
+            <%= link_to "Accueil", available_paintings_path %>
+          </li>
+          <li class="toggle-nav-item">
+            <%= link_to "L'artiste", artiste_pages_path %>
+          </li>
+          <li class="toggle-nav-item">
+            <%= link_to 'La galerie', paintings_path %>
+          </li>
+          <li class="toggle-nav-item">
+            <%= link_to 'Contact', contact_pages_path %>
+          </li>
+          <% if current_user %>
+            <li class="toggle-nav-item">
+              <span id="account-tab">Mon compte</span>
+              <ul class="main-user-dropdown disapear">
+                <li class="main-user-dropdown-item">
+                  <%= link_to 'Mon compte', user_path(current_user) %>
+                </li>
+                <li class="main-user-dropdown-item">
+                  <%= link_to 'Mes commandes', user_orders_path(current_user) %>
+                </li>
+                <li class="main-user-dropdown-item">
+                  <%= button_to 'Déconnexion', destroy_user_session_path, method: :delete %>
+                </li>
+              </ul>
+            </li>
+          <% else %>
+            <li class="toggle-nav-item">
+              <%= link_to 'Connexion', new_user_session_path %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

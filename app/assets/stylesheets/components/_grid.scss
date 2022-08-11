@@ -23,16 +23,19 @@
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 700px) {
   .main-grid {
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 0px;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
   }
+}
 
+@media (max-width: 400px) {
   .galerie-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
 
 // Grid for biography
 
@@ -40,4 +43,27 @@
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-column-gap: 20px;
+}
+
+@media (max-width: 400px) {
+  .biography-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-column-gap: 20px;
+  }
+}
+
+// Grid for recap
+
+.recap-parts {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  grid-column-gap: 50px;
+}
+
+@media (max-width: 700px) {
+  .recap-parts {
+    grid-template-columns: 1fr;
+    grid-gap: 50px;
+  }
 }

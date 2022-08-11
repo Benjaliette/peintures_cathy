@@ -28,11 +28,17 @@ application.register("disapear-navbar", DisapearNavbarController)
 import FileUploadController from "./file_upload_controller.js"
 application.register("file-upload", FileUploadController)
 
+import FooterResponsivityController from "./footer_responsivity_controller.js"
+application.register("footer-responsivity", FooterResponsivityController)
+
 import GenerateBackgroundController from "./generate_background_controller.js"
 application.register("generate-background", GenerateBackgroundController)
 
 import HelloController from "./hello_controller.js"
 application.register("hello", HelloController)
+
+import NavbarResponsivityController from "./navbar_responsivity_controller.js"
+application.register("navbar-responsivity", NavbarResponsivityController)
 
 import PaintingZoomController from "./painting_zoom_controller.js"
 application.register("painting-zoom", PaintingZoomController)

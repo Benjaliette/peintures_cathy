@@ -143,3 +143,50 @@
     padding: 10px 0;
   }
 }
+
+//===== STYLE FOR MOBILE NAVBAR =====//
+
+.navbar-mobile {
+  background: #FAEEE0;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  $navbar-height: 194.781px;
+  height: $navbar-height;
+  z-index: 1;
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    .logo img {
+      width: 230px;
+    }
+  }
+}
+
+.hamburger {
+  i {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.toggle-nav-items {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  list-style: none;
+  background: rgba(250, 238, 224, 0.95);
+  border: 1px solid black;
+}
+
+.toggle-nav-item {
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
+  margin: 80px;
+}
