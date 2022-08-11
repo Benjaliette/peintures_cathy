@@ -19,3 +19,16 @@
     </div>
   <% end %>
 </div>
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Product",
+    "name": "<%= @painting.title %>",
+    "offers": {
+      "@type": "Offer",
+      "price": "<%= @painting.price %>",
+      "priceCurrency": "EUR"
+    }
+  }
+</script>
