@@ -81,6 +81,11 @@ class OrdersController < ApplicationController
       amount: @painting.price_cents,
       currency: 'eur',
       payment_method_types: ['card'],
+      payment_method_options: {
+        card: {
+          request_three_d_secure: "automatic"
+        }
+      },
       description: "Achat du tableau #{@order.painting.title}",
       receipt_email: current_user.email
     })
