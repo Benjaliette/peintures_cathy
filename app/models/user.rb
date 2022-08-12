@@ -11,7 +11,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   geocoded_by :address
-  before_validation :set_profile_picture
+  after_create :set_profile_picture
   after_validation :geocode, if: :will_save_change_to_address?
 
   # Associations
