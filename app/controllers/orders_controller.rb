@@ -23,17 +23,14 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(order_params)
-    @order.painting = @painting
-    @order.amount = @painting.price
-    @order.state = 'pending'
     current_user.update(user_params)
-    current_user.save
-    @order.user = current_user
+
+    @order = Order.new(order_params)
+    @order.complete_order(current_user)
     authorize @order
 
     if @order.save
-      session = set_stripe_session
+      session = @order.set_stripe_paiement(success_pages_url, user_order_url(current_user, @order))
       @order.update(checkout_session_id: session.id)
 
       redirect_to session.url, allow_other_host: true
@@ -50,7 +47,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:address)
+    params.require(:order).permit(:address, :painting_id)
   end
 
   def user_params
@@ -59,63 +56,5 @@ class OrdersController < ApplicationController
 
   def set_painting
     @painting = policy_scope(Painting).friendly.find(params[:painting_id])
-  end
-
-  def set_stripe_product
-    Stripe::Product.create(
-      name: @painting.title,
-      images: [@painting.photo.url]
-    )
-  end
-
-  def set_stripe_price(product)
-    Stripe::Price.create({
-      unit_amount: @painting.price_cents,
-      currency: 'eur',
-      product: product.id
-    })
-  end
-
-  def set_stripe_paiement_intent
-    Stripe::PaymentIntent.create({
-      amount: @painting.price_cents,
-      currency: 'eur',
-      payment_method_types: ['card'],
-      payment_method_options: {
-        card: {
-          request_three_d_secure: "automatic"
-        }
-      },
-      description: "Achat du tableau #{@order.painting.title}",
-      receipt_email: current_user.email
-    })
-  end
-
-  def set_stripe_customer
-    Stripe::Customer.create({
-      address: current_user.cut_address_in_parts,
-      email: current_user.email,
-      name: "#{current_user.first_name} #{current_user.last_name}",
-      metadata: { id: current_user.id }
-    })
-  end
-
-  def set_stripe_session
-    customer = set_stripe_customer
-    product = set_stripe_product
-    price = set_stripe_price(product)
-    set_stripe_paiement_intent
-
-    Stripe::Checkout::Session.create(
-      payment_method_types: ['card'],
-      line_items: [{
-        price: price.id,
-        quantity: 1,
-      }],
-      customer: customer,
-      mode: 'payment',
-      success_url: "#{success_pages_url}?session_id={CHECKOUT_SESSION_ID}",
-      cancel_url: user_order_url(current_user, @order)
-    )
   end
 end

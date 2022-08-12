@@ -67,7 +67,8 @@
             </div>
             <p><%= @painting.price %> €</p>
           </div>
-            <%= f.submit 'Payer', class: 'btn-principal no-border' %>
+          <%= f.input :painting_id, input_html: { value: @painting.id }, as: :hidden %>
+          <%= f.submit 'Payer', class: 'btn-principal no-border' %>
         </div>
       </div>
     </div>

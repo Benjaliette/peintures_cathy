@@ -4,11 +4,28 @@
   Félicitations, vous serez bientôt en possession du tableau qui vous fait voyager.
 </p>
 <p>
-  Vous pouvez dès à présent vous connecter à votre <%= link_to 'compte personnel', user_url(@user) %> avec votre adresse mail (<%= @user.email %>)
-  et le mot de passe que vous avez entré (vous pouvez en toute circonstance modifier votre mot de passe dans votre espace).
+  Veuillez trouver ci-dessous votre reçu. Vous pourrez retrouver la transaction dans votre relevé bancaire sous le libellé 'WWW.CLIET-TABLEAUX.COM'
+</p>
+<table class='table'>
+  <tr>
+    <th>Nom du produit</th>
+    <th>Quantité</th>
+    <th>Montant</th>
+  </tr>
+  <tr>
+    <td><%= @order.painting.title %></td>
+    <td>1</td>
+    <td><%= @order.painting.price %> €</td>
+  </tr>
+  <tr>
+    <td>Total</td>
+    <td></td>
+    <td><%= @order.amount %> €</td>
+  </tr>
+</table>
+<p>
+  Merci pour votre achat.
 </p>
 <p>
-  Grâce à votre inscription, vous pouvez désormais acquérir l'un des tableaux mis en vente.
-  Nous espérons que vous serez satisfait de notre service. Pour toute demande complémentaire, n'hésitez pas à nous
-  contacter <%= link_to 'ICI', contact_pages_url %>
+  Vous pouvez désormais retourner à votre compte CLIET <%= link_to 'ICI', user_url(@user) %>
 </p>

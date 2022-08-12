@@ -12,6 +12,28 @@
       width: 50px;
     }
   }
+
+  .copyrights {
+    font-size: 10px;
+  }
+
+  .plan {
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  ul {
+    list-style: none;
+
+    .footer-item {
+      cursor: pointer;
+
+      &:hover {
+        font-weight: bold;
+      }
+    }
+  }
 }
 
 .footer-mobile {

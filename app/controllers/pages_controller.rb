@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[ home contact artiste ]
+  after_action :send_confirmation_mail, only: :success
 
   def home
   end
@@ -16,5 +17,11 @@ class PagesController < ApplicationController
 
   def robots
     respond_to :text
+  end
+
+  private
+
+  def send_confirmation_mail
+    OrderMailer.with(user: current_user, order: current_user.orders.last).confirmation.deliver_now
   end
 end
