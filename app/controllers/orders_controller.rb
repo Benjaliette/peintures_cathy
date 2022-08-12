@@ -76,6 +76,16 @@ class OrdersController < ApplicationController
     })
   end
 
+  def set_stripe_paiement_intent
+    Stripe::PaymentIntent.create({
+      amount: @painting.price_cents,
+      currency: 'eur',
+      payment_method_types: ['card'],
+      description: "Achat du tableau #{@order.painting.title}",
+      receipt_email: current_user.email
+    })
+  end
+
   def set_stripe_customer
     Stripe::Customer.create({
       address: current_user.cut_address_in_parts,
@@ -89,6 +99,7 @@ class OrdersController < ApplicationController
     customer = set_stripe_customer
     product = set_stripe_product
     price = set_stripe_price(product)
+    set_stripe_paiement_intent
 
     Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
