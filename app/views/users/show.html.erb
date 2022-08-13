@@ -66,7 +66,7 @@
             <ul class="paintings-list">
               <% @paintings.each do |painting| %>
                 <li class="paintings-list-item">
-                  <%= link_to edit_painting_path do %>
+                  <%= link_to edit_painting_path(painting) do %>
                     <%= cl_image_tag painting.photo.key, class:'painting-pic-xs' %>
                     <%= painting.title %>
                   <% end %>
