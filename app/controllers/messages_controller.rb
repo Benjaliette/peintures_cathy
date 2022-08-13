@@ -6,9 +6,9 @@ class MessagesController < ApplicationController
     if @message.valid?
       MessageMailer.with(message: @message).contact.deliver_now
       redirect_to available_paintings_path
-      # flash[:notice] = "We have received your message and will be in touch soon!"
+      flash[:success] = "Nous avons bien reçu votre message et nous vous contacterons dès que possible"
     else
-      # flash[:notice] = "There was an error sending your message. Please try again."
+      flash[:notice] = "Il y a eu une erreur dans l'envoi de votre message. Veuillez recommander s'il vous plait."
       render 'pages/contact'
     end
   end
