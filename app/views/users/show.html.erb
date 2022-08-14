@@ -55,7 +55,7 @@
       <div class="user-card-infos user-admin" data-controller="admin-modal">
         <div class="user-infos-title">Tableau de bord</div>
         <ul class="user-admin-actions">
-          <li><%= link_to 'Liste des commandes', user_orders_path(@user) %></li>
+          <li><%= link_to 'Liste des commandes', admin_orders_url %></li>
           <li><%= link_to 'Ajouter un tableau', new_painting_path %></li>
           <li data-action="click->admin-modal#editModalAppear">Modifier un tableau</li>
           <li data-action="click->admin-modal#deleteModalAppear">Supprimer un tableau</li>

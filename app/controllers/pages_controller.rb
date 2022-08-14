@@ -23,5 +23,8 @@ class PagesController < ApplicationController
 
   def send_confirmation_mail
     OrderMailer.with(user: current_user, order: current_user.orders.last).confirmation.deliver_now
+
+    @user = User.first
+    OrderMailer.with(user: current_user, order: current_user.orders.last, admin_user: @user).notification.deliver_now
   end
 end

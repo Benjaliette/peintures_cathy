@@ -1,0 +1,29 @@
+<h1>Bonjour Catherine</h1>
+
+<p>
+  <%= "#{@user.first_name} #{@user.last_name} t'as commandé un tableau" %>.
+  Ci-dessous les détails et le reçu.
+</p>
+<table class='table'>
+  <tr>
+    <th>Nom du produit</th>
+    <th>Quantité</th>
+    <th>Montant</th>
+  </tr>
+  <tr>
+    <td><%= @order.painting.title %></td>
+    <td>1</td>
+    <td><%= @order.painting.price %> €</td>
+  </tr>
+  <tr>
+    <td>Total</td>
+    <td></td>
+    <td><%= @order.amount %> €</td>
+  </tr>
+</table>
+<p>
+  Tu peux retrouver toutes les commandes passées sur le site <%= link_to 'ICI', admin_orders_url %>
+</p>
+<p>
+  Et enfin voici l'email du client : <%= @user.email %>
+</p>

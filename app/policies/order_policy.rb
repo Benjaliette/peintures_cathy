@@ -10,8 +10,16 @@ class OrderPolicy < ApplicationPolicy
     end
   end
 
+  def admin?
+    user.admin?
+  end
+
   def show?
     record.user == user
+  end
+
+  def detail?
+    user.admin?
   end
 
   def create?

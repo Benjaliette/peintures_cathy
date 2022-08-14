@@ -1,0 +1,15 @@
+<% content_for(:title, "Toutes les commandes")%>
+<div class="container">
+  <h1>Ce que les clients ont commandé sur CLIET-tableaux.com</h1>
+  <ul class="user-orders-list margin-x-none">
+    <% @orders.each do |order| %>
+      <li class="order-card">
+        <%= cl_image_tag order.painting.photo.key, class:"order-card-img" %>
+        <div class="order-card-description">
+          <h2><%= link_to order.painting.title, detail_order_path(order) %></h2>
+          <div class='mobile-display'>Commandé le <%= l order.created_at, format: "%e %b %Y", locale: 'fr' %></div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>

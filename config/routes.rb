@@ -32,6 +32,15 @@ Rails.application.routes.draw do
     resources :orders, only: %i[index show]
   end
 
+  resources :orders, only: :admin do
+    collection do
+      get 'admin'
+    end
+    member do
+      get 'detail'
+    end
+  end
+
   resources :messages, only: :create
 
   mount StripeEvent::Engine, at: '/stripe-webhooks'

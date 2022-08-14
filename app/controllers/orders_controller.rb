@@ -8,6 +8,11 @@ class OrdersController < ApplicationController
     @orders = @user.orders
   end
 
+  def admin
+    @orders = Order.all
+    authorize @orders
+  end
+
   def show
     @order = Order.friendly.find(params[:id])
     authorize @order
@@ -15,6 +20,14 @@ class OrdersController < ApplicationController
     @painting = @order.painting
 
     add_breadcrumb @order.painting.title, user_order_path(current_user, @order)
+  end
+
+  def detail
+    @order = Order.friendly.find(params[:id])
+    authorize @order
+
+    @painting = @order.painting
+    @user = @order.user
   end
 
   def new
