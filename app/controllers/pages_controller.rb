@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[ home contact artiste ]
+  skip_before_action :authenticate_user!, only: %i[ home contact ondemand artiste ]
   after_action :send_confirmation_mail, only: :success
 
   def home
