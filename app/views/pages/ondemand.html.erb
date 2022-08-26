@@ -27,7 +27,7 @@
           <%= f.input :body,
                           label: 'Votre demande de peinture (description détaillée)',
                           as: :text,
-                          input_html: { class: 'form-name-input-text' } %>
+                          input_html: { class: 'form-name-input-text', id: 'message_body' } %>
         </div>
         <div class="form-group-picture" data-controller="file-upload">
           <%= f.label 'Photo du tableau' %>
