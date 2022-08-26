@@ -9,7 +9,7 @@ class PaintingsController < ApplicationController
   end
 
   def available
-    @paintings = policy_scope(Painting).where(sell: true)
+    @paintings = policy_scope(Painting).where(sell: true).order(updated_at: :desc)
   end
 
   def show

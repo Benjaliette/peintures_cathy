@@ -22,9 +22,10 @@
     width: 100%;
     display: grid;
     gap: 1rem;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(6, minmax(0, auto));
     text-align: center;
     .nav-item {
+      font-size: 90%;
       list-style: none;
       padding: 12px;
       position: relative;
@@ -40,8 +41,12 @@
       }
     }
 
-    a:hover, #account-tab:hover {
-      font-weight: bold;
+    #account-tab {
+      padding: 12px;
+    }
+
+    .nav-item:hover, #account-tab:hover {
+      border-bottom: 1px solid black;
     }
   }
 }
@@ -60,6 +65,10 @@
   .main-user-dropdown-item {
     font-size: 12px;
     padding: 10px 0;
+
+    &:hover {
+      font-weight: bold;
+    }
   }
 }
 
@@ -94,10 +103,10 @@
   .nav-items {
     margin: 0;
     padding: 0;
-    width: 45%;
+    width: 65%;
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    text-align: center;
+    grid-template-columns: repeat(5, minmax(0, auto));
+
     transform: translateX(30%) scale(0.95);
     opacity: 0;
     transition: all .5s;
@@ -108,6 +117,7 @@
     .nav-item {
       display: flex;
       align-items: center;
+      text-align: center;
       list-style: none;
       padding: 12px;
       &:last-child {

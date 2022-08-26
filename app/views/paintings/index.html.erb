@@ -7,7 +7,7 @@
              data-controller="painting-zoom">
           <div class="painting-card-zoom" data-action="click->painting-zoom#modalAppear">zoom +</div>
           <% if painting.sell %>
-            <div class="painting-card-sell">A VENDRE</div>
+            <%= link_to "A VENDRE", painting_path(painting), class: 'painting-card-sell' %>
           <% end %>
           <div class="modal disapear" data-painting-zoom-target='modal'>
             <div class="modal-content">

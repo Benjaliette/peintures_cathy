@@ -9,6 +9,10 @@ class PagesController < ApplicationController
     @message = Message.new
   end
 
+  def ondemand
+    @query = Query.new
+  end
+
   def artiste
   end
 

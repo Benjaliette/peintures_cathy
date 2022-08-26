@@ -1,5 +1,6 @@
 <% content_for(:title, 'Accueil / Tableaux à vendre')%>
 <div class="container">
+  <h1 class="margin-y">Peintures à vendre</h1>
   <div class="main-grid">
     <% @paintings.each do |painting| %>
       <%= link_to painting_path(painting) do %>

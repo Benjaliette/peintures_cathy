@@ -1,0 +1,47 @@
+<% content_for(:title, "Peinture à la demande")%>
+<div class="container">
+  <div class="contact-form">
+    <div class='contact-form-infos'>
+      <h2>Vous préférez acquérir une peinture personnalisée</h2>
+      <p>
+        C'est possible, CL peut aussi peindre à la demande. Il suffit simplement de fournir
+        un descriptif du tableau que vous souhaitez ainsi qu'une photo (si reproduction de quelque chose d'existant).<br>
+        Nous reviendrons vers vous par mail dès que possible.
+      </p>
+    </div>
+
+    <%= simple_form_for @query, data: {turbo: false} do |f| %>
+      <div class="form-inputs">
+        <div class="form-group">
+          <%= f.input :name,
+                          label: 'Votre nom',
+                          input_html: { class: 'form-name-input' },
+                          autofocus: true %>
+        </div>
+        <div class="form-group">
+          <%= f.input :email,
+                          label: 'Votre email',
+                          input_html: { class: 'form-name-input' } %>
+        </div>
+        <div class="form-group-text">
+          <%= f.input :body,
+                          label: 'Votre demande de peinture (description détaillée)',
+                          as: :text,
+                          input_html: { class: 'form-name-input-text' } %>
+        </div>
+        <div class="form-group-picture" data-controller="file-upload">
+          <%= f.label 'Photo du tableau' %>
+          <ul class="overview-div" data-file-upload-target='overview'></ul>
+          <%= f.input :photo,
+                      as: :file,
+                      label: false,
+                      input_html: { class: 'upload-button' } %>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <%= f.submit 'Envoyer', class: 'btn-principal' %>
+      </div>
+    <% end %>
+  </div>
+</div>

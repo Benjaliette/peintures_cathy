@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   resources :pages do
     collection do
       get 'contact'
+      get 'ondemand'
       get 'artiste'
       get 'success'
     end
@@ -42,6 +43,7 @@ Rails.application.routes.draw do
   end
 
   resources :messages, only: :create
+  resources :queries, only: :create
 
   mount StripeEvent::Engine, at: '/stripe-webhooks'
 

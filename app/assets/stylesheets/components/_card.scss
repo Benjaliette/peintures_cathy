@@ -102,12 +102,12 @@
   right: 10px;
 
   background: white;
-  font-size: 8px;
-  font-weight: bold;
-  color: $red;
   border: 2px solid $red;
   border-radius: 20px;
   padding: 2px 5px;
+  font-size: 8px;
+  font-weight: bold;
+  color: $red;
 }
 
 @media (max-width: 900px) {

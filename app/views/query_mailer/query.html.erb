@@ -1,0 +1,9 @@
+<h1>Demande de <%= @query.name %>:</h1>
+
+<p class='mail-body'>
+  <%= @query.body %>
+</p>
+
+<%= image_tag @query.photo.path %>
+
+<div>Mail de la personne à contacter: <%= @query.email %></div>
