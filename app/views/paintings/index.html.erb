@@ -9,6 +9,9 @@
           <% if painting.sell %>
             <%= link_to "A VENDRE", painting_path(painting), class: 'painting-card-sell' %>
           <% end %>
+          <% if current_user && current_user.admin? %>
+            <%= link_to "Supprimer", painting_path(painting), data: { turbo_method: :delete, turbo_confirm: "C'est votre dernier mot?" }, class: 'painting-card-delete' %>
+          <% end %>
           <div class="modal disapear" data-painting-zoom-target='modal'>
             <div class="modal-content">
               <%= cl_image_tag painting.photo.key, class:'painting-zoom' %>

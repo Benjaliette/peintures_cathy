@@ -9,40 +9,58 @@
         <% end %>
       </div>
       <ul class="nav-items">
-        <li class="nav-item">
-          <%= link_to "Accueil", available_paintings_path %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "L'artiste", artiste_pages_path %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'La galerie', paintings_path %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'À la demande', ondemand_pages_path %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'Contact', contact_pages_path %>
-        </li>
+        <%= link_to available_paintings_path do %>
+          <li class="nav-item <%= active_class(available_paintings_path) %>">
+            Accueil
+          </li>
+        <% end %>
+        <%= link_to artiste_pages_path do %>
+          <li class="nav-item <%= active_class(artiste_pages_path) %>">
+            L'artiste
+          </li>
+        <% end %>
+        <%= link_to paintings_path do %>
+          <li class="nav-item <%= active_class(paintings_path) %>">
+            La galerie
+          </li>
+        <% end %>
+        <%= link_to ondemand_pages_path do %>
+          <li class="nav-item <%= active_class(ondemand_pages_path) %>">
+            À la demande
+          </li>
+        <% end %>
+        <%= link_to contact_pages_path do %>
+          <li class="nav-item <%= active_class(contact_pages_path) %>">
+            Contact
+          </li>
+        <% end %>
         <% if current_user %>
-          <li class="nav-item" data-controller="user-dropdown" data-action='click->user-dropdown#toggleDropdown' data-user-dropdown-target='navbarItem' data-change-navbar-background-target='navbarItem'>
-            <span id="account-tab">Mon compte</span>
+          <li class="nav-item" data-controller="user-dropdown" data-action='click->user-dropdown#toggleDropdown click@window->user-dropdown#closeDropdown' data-user-dropdown-target='navbarItem' data-change-navbar-background-target='navbarItem'>
+            <span id="account-tab" data-user-dropdown-target='navbarItemText'>Mon compte</span>
             <ul class="main-user-dropdown disapear" data-user-dropdown-target='dropdownList' data-change-navbar-background-target='mainDropdownList'>
-              <li class="main-user-dropdown-item">
-                <%= link_to 'Mon compte', user_path(current_user) %>
-              </li>
-              <li class="main-user-dropdown-item">
-                <%= link_to 'Mes commandes', user_orders_path(current_user) %>
-              </li>
-              <li class="main-user-dropdown-item">
-                <%= button_to 'Déconnexion', destroy_user_session_path, method: :delete %>
-              </li>
+              <%= link_to user_path(current_user) do %>
+                <li class="main-user-dropdown-item">
+                  Mon compte
+                </li>
+              <% end %>
+              <%= link_to user_orders_path(current_user) do %>
+                <li class="main-user-dropdown-item">
+                  Mes commandes
+                </li>
+              <% end %>
+              <%= button_to destroy_user_session_path, method: :delete do %>
+                <li class="main-user-dropdown-item">
+                  Déconnexion
+                </li>
+              <% end %>
             </ul>
           </li>
         <% else %>
-          <li class="nav-item">
-            <%= link_to "Connexion", new_user_session_path %>
-          </li>
+          <%= link_to new_user_session_path do %>
+            <li class="nav-item <%= active_class(new_user_session_path) %>">
+              Connexion
+            </li>
+          <% end %>
         <% end %>
       </ul>
     </div>

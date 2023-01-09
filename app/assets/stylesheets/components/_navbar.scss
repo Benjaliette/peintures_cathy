@@ -25,12 +25,18 @@
     grid-template-columns: repeat(6, minmax(0, auto));
     text-align: center;
     .nav-item {
+      box-sizing: border-box;
       font-size: 90%;
       list-style: none;
       padding: 12px;
       position: relative;
       cursor: pointer;
       z-index: 1;
+
+      &.active {
+        font-weight: bold;
+        border-bottom: 1px solid black;
+      }
     }
     .button_to > button {
       background: transparent;
@@ -45,7 +51,7 @@
       padding: 12px;
     }
 
-    .nav-item:hover, #account-tab:hover {
+    .nav-item:hover {
       border-bottom: 1px solid black;
     }
   }

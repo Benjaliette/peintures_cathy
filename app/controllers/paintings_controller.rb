@@ -46,7 +46,7 @@ class PaintingsController < ApplicationController
     @painting.destroy
 
     flash[:alert] = 'Le tableau a été définitivement supprimé'
-    redirect_to user_path(current_user)
+    redirect_to paintings_path, status: :see_other
   end
 
   private
