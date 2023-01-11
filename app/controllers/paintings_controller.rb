@@ -29,6 +29,7 @@ class PaintingsController < ApplicationController
     if @painting.save
       redirect_to painting_path(@painting)
     else
+      flash[:alert] = 'Il manque des infos au tableau !'
       render :new
     end
   end

@@ -124,6 +124,20 @@
   color: $blue;
 }
 
+.painting-card-edit {
+  position: absolute;
+  bottom: 40px;
+  right: 10px;
+
+  background: white;
+  border: 2px solid $green;
+  border-radius: 20px;
+  padding: 2px 5px;
+  font-size: 8px;
+  font-style: italic;
+  color: $green;
+}
+
 @media (max-width: 900px) {
   .painting-card-zoom {
     opacity: 1;
